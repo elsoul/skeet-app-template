@@ -1,6 +1,6 @@
 import { View } from 'react-native'
 
-import ExpoLogo from '@assets/SkeetLogoHorizontal.svg'
+import ExpoLogo from '@assets/logo/SkeetLogoHorizontal.svg'
 
 export default function App() {
   return (
