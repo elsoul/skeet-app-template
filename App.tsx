@@ -19,6 +19,11 @@ import {
   NotoSansJP_900Black,
 } from '@expo-google-fonts/noto-sans-jp'
 import AppLoading from '@/components/loading/AppLoading'
+import { Suspense } from 'react'
+import { RecoilRoot } from 'recoil'
+import ReactNativeRecoilPersist, {
+  ReactNativeRecoilPersistGate,
+} from 'react-native-recoil-persist'
 
 export default function App() {
   useDeviceContext(tw)
@@ -45,16 +50,24 @@ export default function App() {
   }
 
   return (
-    <View
-      style={{
-        backgroundColor: 'white',
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <ExpoLogo width={84} height={32} />
-      <Text style={tw`font-loaded-extrabold text-3xl`}>Testテスト</Text>
-    </View>
+    <>
+      <RecoilRoot>
+        <ReactNativeRecoilPersistGate store={ReactNativeRecoilPersist}>
+          <Suspense fallback={<AppLoading />}>
+            <View
+              style={{
+                backgroundColor: 'white',
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <ExpoLogo width={84} height={32} />
+              <Text style={tw`font-loaded-extrabold text-3xl`}>Testテスト</Text>
+            </View>
+          </Suspense>
+        </ReactNativeRecoilPersistGate>
+      </RecoilRoot>
+    </>
   )
 }

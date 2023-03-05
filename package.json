@@ -21,6 +21,7 @@
   "dependencies": {
     "@expo-google-fonts/noto-sans-jp": "0.2.3",
     "@expo-google-fonts/outfit": "0.2.3",
+    "@react-native-async-storage/async-storage": "1.17.11",
     "@react-native-community/cli-platform-android": "10.2.0",
     "@react-native-community/cli-platform-ios": "10.2.0",
     "@types/react": "18.0.27",
@@ -29,10 +30,12 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.71.3",
+    "react-native-recoil-persist": "0.0.6",
     "react-native-svg": "13.4.0",
     "react-native-svg-transformer": "1.0.0",
-    "react-native-utilities": "^0.1.7",
+    "react-native-utilities": "0.1.7",
     "react-native-web": "0.18.12",
+    "recoil": "0.7.7",
     "twrnc": "3.6.0"
   },
   "devDependencies": {
