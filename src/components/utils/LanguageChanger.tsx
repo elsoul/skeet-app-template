@@ -1,6 +1,6 @@
 import tw from '@/lib/tailwind'
-import { useCallback, useMemo } from 'react'
-import { Text } from 'react-native'
+import { useCallback } from 'react'
+import { Text, View } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { LanguageIcon } from 'react-native-heroicons/outline'
 import {
@@ -12,10 +12,6 @@ import {
 
 export default function LanguageChanger() {
   const { i18n } = useTranslation()
-  const currentLanguage = useMemo(() => {
-    return i18n.language
-  }, [i18n])
-  console.log(currentLanguage)
 
   const changeLanguage = useCallback(
     async (lang: string) => {
@@ -26,28 +22,40 @@ export default function LanguageChanger() {
   return (
     <>
       <Menu>
-        <MenuTrigger>
+        <MenuTrigger customStyles={tw`w-6 h-6`}>
           <LanguageIcon style={tw`text-gray-700 dark:text-gray-200`} />
         </MenuTrigger>
         <MenuOptions>
-          <MenuOption>
-            <Text
-              style={{
-                ...tw`font-loaded-medium text-gray-900 dark:text-gray-50`,
+          <View style={tw`shadow-lg`}>
+            <MenuOption
+              onSelect={() => {
+                changeLanguage('en-US')
               }}
+              style={tw`p-3`}
             >
-              English
-            </Text>
-          </MenuOption>
-          <MenuOption>
-            <Text
-              style={{
-                ...tw`font-loaded-medium text-gray-900 dark:text-gray-50`,
+              <Text
+                style={{
+                  ...tw`font-loaded-medium text-gray-900 dark:text-gray-50`,
+                }}
+              >
+                English
+              </Text>
+            </MenuOption>
+            <MenuOption
+              onSelect={() => {
+                changeLanguage('ja-JP')
               }}
+              style={tw`p-3 border-t-gray-50 dark:border-t-gray-800 border-t`}
             >
-              日本語
-            </Text>
-          </MenuOption>
+              <Text
+                style={{
+                  ...tw`font-loaded-medium text-gray-900 dark:text-gray-50`,
+                }}
+              >
+                日本語
+              </Text>
+            </MenuOption>
+          </View>
         </MenuOptions>
       </Menu>
     </>
