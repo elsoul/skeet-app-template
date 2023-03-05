@@ -1,7 +1,7 @@
+import 'react-native-gesture-handler'
+import '@/lib/i18n'
 import { View, Text } from 'react-native'
 import { useDeviceContext } from 'twrnc'
-
-import ExpoLogo from '@assets/logo/SkeetLogoHorizontal.svg'
 import tw from '@/lib/tailwind'
 import { useFonts } from 'expo-font'
 import {
@@ -24,6 +24,11 @@ import { RecoilRoot } from 'recoil'
 import ReactNativeRecoilPersist, {
   ReactNativeRecoilPersistGate,
 } from 'react-native-recoil-persist'
+import { MenuProvider } from 'react-native-popup-menu'
+import Toast from 'react-native-toast-message'
+import { toastConfig } from '@/lib/toast'
+
+import Routes from '@/routes/Routes'
 
 export default function App() {
   useDeviceContext(tw)
@@ -51,23 +56,16 @@ export default function App() {
 
   return (
     <>
-      <RecoilRoot>
-        <ReactNativeRecoilPersistGate store={ReactNativeRecoilPersist}>
-          <Suspense fallback={<AppLoading />}>
-            <View
-              style={{
-                backgroundColor: 'white',
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <ExpoLogo width={84} height={32} />
-              <Text style={tw`font-loaded-extrabold text-3xl`}>Testテスト</Text>
-            </View>
-          </Suspense>
-        </ReactNativeRecoilPersistGate>
-      </RecoilRoot>
+      <Suspense fallback={<AppLoading />}>
+        <RecoilRoot>
+          <ReactNativeRecoilPersistGate store={ReactNativeRecoilPersist}>
+            <MenuProvider>
+              <Routes />
+              <Toast config={toastConfig} />
+            </MenuProvider>
+          </ReactNativeRecoilPersistGate>
+        </RecoilRoot>
+      </Suspense>
     </>
   )
 }
