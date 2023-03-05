@@ -1,4 +1,3 @@
-const path = require('path')
 const createExpoWebpackConfigAsync = require('@expo/webpack-config')
 
 module.exports = async function (env, argv) {
@@ -21,11 +20,6 @@ module.exports = async function (env, argv) {
     }
   })
   config.resolve.extensions.push('.svg')
-
-  config.resolve.alias = {
-    '@': path.resolve(__dirname, 'src'),
-    '@assets': path.resolve(__dirname, 'assets'),
-  }
 
   return config
 }
