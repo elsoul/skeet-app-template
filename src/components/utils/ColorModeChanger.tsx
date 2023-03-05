@@ -3,12 +3,11 @@ import { Pressable } from 'react-native'
 import { useAppColorScheme } from 'twrnc'
 import { MoonIcon, SunIcon } from 'react-native-heroicons/outline'
 import { useRecoilState } from 'recoil'
-import { userState } from '@/store/user'
-import { refreshState } from '@/store/refresh'
+import { colorModeRefreshState } from '@/store/colorModeRefresh'
 
 export default function ColorModeChanger() {
   const [_, __, setColorScheme] = useAppColorScheme(tw)
-  const [refresh, setRefresh] = useRecoilState(refreshState)
+  const [refresh, setRefresh] = useRecoilState(colorModeRefreshState)
   return (
     <>
       <Pressable

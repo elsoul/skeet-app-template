@@ -6,13 +6,13 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import SkeetLogoHorizontal from '@assets/logo/SkeetLogoHorizontal.svg'
 import SkeetLogoHorizontalInvert from '@assets/logo/SkeetLogoHorizontalInvert.svg'
 import ColorModeChanger from '@/components/utils/ColorModeChanger'
-import useRefresh from '@/hooks/useRefresh'
+import useColorModeRefresh from '@/hooks/useColorModeRefresh'
 
 type Props = {
   children: ReactNode
 }
 export default function DefaultLayout({ children }: Props) {
-  useRefresh()
+  useColorModeRefresh()
   return (
     <>
       <View style={tw`relative w-full h-full bg-white dark:bg-gray-900`}>

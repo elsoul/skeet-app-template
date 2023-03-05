@@ -2,10 +2,10 @@ import { Text } from 'react-native'
 import DefaultLayout from '@/layouts/default/DefaultLayout'
 import tw from '@/lib/tailwind'
 import { useTranslation } from 'react-i18next'
-import useRefresh from '@/hooks/useRefresh'
+import useColorModeRefresh from '@/hooks/useColorModeRefresh'
 
 export default function LoginScreen() {
-  useRefresh()
+  useColorModeRefresh()
   const { t } = useTranslation()
   return (
     <>
