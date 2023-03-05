@@ -1,26 +1,49 @@
 {
+  "scripts": {
+    "prepare": "husky install",
+    "pre-commit": "run-p 'pre-commit:*'",
+    "pre-commit:format": "prettier --write --ignore-unknown .",
+    "pre-commit:lint": "eslint",
+    "pre-commit:typecheck": "tsc --noEmit",
+    "start": "EXPO_USE_PATH_ALIASES=1 expo start -c",
+    "android": "EXPO_USE_PATH_ALIASES=1 expo start --android",
+    "ios": "EXPO_USE_PATH_ALIASES=1 expo start --ios",
+    "web": "EXPO_USE_PATH_ALIASES=1 expo start --web",
+    "update:packages": "ncu -u -x 'react-native-reanimated,react-native-svg' && yarn"
+  },
   "dependencies": {
-    "expo": "^47.0.0",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-native": "0.70.5",
+    "@types/react": "18.0.27",
+    "expo": "48.0.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.3",
     "react-native-svg": "13.4.0",
-    "react-native-svg-transformer": "^0.14.3",
-    "react-native-web": "~0.18.7"
+    "react-native-svg-transformer": "1.0.0",
+    "react-native-web": "0.18.12"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
-    "@expo/metro-config": "^0.1.57",
-    "@expo/webpack-config": "^0.17.2",
-    "@svgr/webpack": "^5.5.0"
+    "@babel/core": "7.21.0",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@typescript-eslint/eslint-plugin": "5.54.0",
+    "@typescript-eslint/parser": "5.54.0",
+    "@expo/metro-config": "0.7.1",
+    "@expo/webpack-config": "18.0.1",
+    "@svgr/webpack": "6.5.1",
+    "babel-plugin-module-resolver": "5.0.0",
+    "eslint": "8.35.0",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-native": "4.0.0",
+    "husky": "8.0.3",
+    "npm-check-updates": "16.7.10",
+    "typescript": "4.9.5",
+    "prettier": "2.8.4",
+    "prettier-plugin-tailwindcss": "0.2.4"
   },
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
-  },
-  "version": "1.0.0",
-  "private": true,
-  "name": "skeet-app-template"
+  "version": "0.1.0",
+  "private": false,
+  "name": "skeet-app-template",
+  "license": "Apache-2.0",
+  "author": "KishiTheMechanic"
 }

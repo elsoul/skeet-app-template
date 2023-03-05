@@ -1,26 +1,89 @@
-# SVG Example
+![Skeet Framework Logo](https://storage.googleapis.com/skeet-assets/imgs/logo/ogp.png)
 
-Import SVG files directly as React components.
+<p align="center">
+  <a href="https://twitter.com/intent/follow?screen_name=ELSOUL_LABO2">
+    <img src="https://img.shields.io/twitter/follow/ELSOUL_LABO2.svg?label=Follow%20@ELSOUL_LABO2" alt="Follow @ELSOUL_LABO2" />
+  </a>
+  <br/>
 
-## How to use
+  <a aria-label="npm version" href="https://www.npmjs.com/package/skeet">
+    <img alt="" src="https://badgen.net/npm/v/skeet">
+  </a>
+  <a aria-label="Downloads Number" href="https://www.npmjs.com/package/skeet">
+    <img alt="" src="https://badgen.net/npm/dt/skeet">
+  </a>
+  <a aria-label="License" href="https://github.com/elsoul/skeet/blob/master/LICENSE.txt">
+    <img alt="" src="https://badgen.net/badge/license/Apache/blue">
+  </a>
+    <a aria-label="Code of Conduct" href="https://github.com/elsoul/skeet/blob/master/CODE_OF_CONDUCT.md">
+    <img alt="" src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg">
+  </a>
+</p>
 
-### Running the app
+# Skeet App Template
 
-- Run `yarn` or `npm install`
-- Run `yarn start` or `npm run start` to try it out.
+React Native (Expo) App Environment for Skeet Framework
 
-### Setup
+## Aiming to
 
-The component `Image` from `react-native` doesn't support loading SVG images like the `img` component from `react-dom` does. Because of this, the next easiest way to use SVGs is to automatically transform them into agnostic React components via the bundler.
+- Fast Development
+- High Performance
+- Global Scale
+- Maintainable Code
+- Multi-Platform
 
-This example demonstrates how to configure both Metro and Webpack to support automatically transforming SVGs.
+## Summary
 
-- In `metro.config.js` we swap the svg extension from being an asset to being a source code file. Then we add a custom transformer.
-- In `webpack.config.js` we append a new loader rule which transforms the svg files.
-- Notice that our `babel.config.js` remains unchanged, using `babel-preset-expo` to transpile files.
+- [x] [React Native](https://reactnative.dev/)
+- [x] [Expo](https://docs.expo.dev/)
+- [x] [TypeScript (v4.9) - Type Check](https://www.typescriptlang.org/)
+- [x] [ESLint - Linter](https://eslint.org/)
+- [x] [Prettier - Formatter](https://prettier.io/)
+- [x] [Husky - Pre Commit](https://typicode.github.io/husky/#/)
+- [ ] [Recoil - State Management](https://recoiljs.org/)
+- [ ] [React i18n - Localization](https://react.i18next.com/)
+- [ ] [twrnc - TailwindCSS](https://github.com/jaredh159/tailwind-react-native-classnames)
+- [ ] [React Navigation - Routing](https://reactnavigation.org/)
+- [ ] [Relay - GraphQL Client](https://relay.dev/)
+- [ ] [Firebase - Hosting & Analytics](https://firebase.google.com/)
 
-## 📝 Notes
+## Quick start
 
-- [react-native-svg](https://github.com/react-native-svg/react-native-svg)
-- [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack)
-- [react-native-svg-transformer](https://github.com/kristerkari/react-native-svg-transformer) (metro only)
+```bash
+# Node version (using nodenv)
+$ node -v
+v18.14.2
+
+# Install dependencies
+$ yarn install --frozen-lockfile
+
+# Run dev server (localhost:4200)
+$ yarn dev
+```
+
+## Firebase Hosting
+
+You need to login to Firebase to use Firebase Hosting to publish your media website.
+
+```bash
+# Install Firebase tools
+$ npm i -g firebase-tools
+
+# Login to Firebase to enable `yarn deploy` from local
+$ firebase login
+
+# Get FIREBASE_DEPLOY_TOKEN to use CI/CD
+$ firebase login:ci
+
+```
+
+## GitHub Actions (CI/CD)
+
+Needs to set Secrets on GitHub to work with GitHub Actions.
+
+```
+BING_API_KEY
+FIREBASE_DEPLOY_TOKEN
+```
+
+Also you need the BING_API_KEY for .env to send sitemap when `yarn deploy`
