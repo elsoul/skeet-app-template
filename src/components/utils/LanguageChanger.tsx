@@ -26,7 +26,7 @@ export default function LanguageChanger() {
           <LanguageIcon style={tw`text-gray-700 dark:text-gray-200`} />
         </MenuTrigger>
         <MenuOptions>
-          <View style={tw`shadow-lg`}>
+          <View style={tw`shadow-lg dark:bg-gray-900`}>
             <MenuOption
               onSelect={() => {
                 changeLanguage('en-US')

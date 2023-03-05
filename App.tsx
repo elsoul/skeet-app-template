@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler'
 import '@/lib/i18n'
-import { View, Text } from 'react-native'
 import { useDeviceContext } from 'twrnc'
 import tw from '@/lib/tailwind'
 import { useFonts } from 'expo-font'
@@ -27,7 +26,6 @@ import ReactNativeRecoilPersist, {
 import { MenuProvider } from 'react-native-popup-menu'
 import Toast from 'react-native-toast-message'
 import { toastConfig } from '@/lib/toast'
-
 import Routes from '@/routes/Routes'
 
 export default function App() {

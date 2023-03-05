@@ -1,3 +1,34 @@
+import tw from '@/lib/tailwind'
+import { Pressable } from 'react-native'
+import { useAppColorScheme } from 'twrnc'
+import { MoonIcon, SunIcon } from 'react-native-heroicons/outline'
+import { useRecoilState } from 'recoil'
+import { userState } from '@/store/user'
+import { refreshState } from '@/store/refresh'
+
 export default function ColorModeChanger() {
-  return <></>
+  const [_, __, setColorScheme] = useAppColorScheme(tw)
+  const [refresh, setRefresh] = useRecoilState(refreshState)
+  return (
+    <>
+      <Pressable
+        onPress={() => {
+          setColorScheme('light')
+          setRefresh({ count: refresh.count + 1 })
+        }}
+        style={tw`hidden dark:flex hover:dark:text-gray-200`}
+      >
+        <SunIcon style={tw`h-5 w-5  dark:text-gray-50`} />
+      </Pressable>
+      <Pressable
+        onPress={() => {
+          setColorScheme('dark')
+          setRefresh({ count: refresh.count + 1 })
+        }}
+        style={tw`dark:hidden hover:text-gray-900`}
+      >
+        <MoonIcon style={tw`h-5 w-5 text-gray-700 `} />
+      </Pressable>
+    </>
+  )
 }
