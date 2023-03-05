@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "expo": "^47.0.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-native": "0.70.5",
+    "react-native-svg": "13.4.0",
+    "react-native-svg-transformer": "^0.14.3",
+    "react-native-web": "~0.18.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@expo/metro-config": "^0.1.57",
+    "@expo/webpack-config": "^0.17.2",
+    "@svgr/webpack": "^5.5.0"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "version": "1.0.0",
+  "private": true,
+  "name": "skeet-app-template"
+}
