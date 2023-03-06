@@ -6,6 +6,7 @@ import useColorModeRefresh from '@/hooks/useColorModeRefresh'
 import LogoHorizontal from '@/components/common/atoms/LogoHorizontal'
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
+import clsx from 'clsx'
 
 export default function LoginScreen() {
   useColorModeRefresh()
@@ -26,7 +27,7 @@ export default function LoginScreen() {
             </Text>
             <Pressable
               onPress={() => {
-                navigation.navigate('Register', {})
+                navigation.navigate('Register')
               }}
             >
               <Text
@@ -73,7 +74,7 @@ export default function LoginScreen() {
                 <View style={tw`flex flex-1 text-right`}>
                   <Pressable
                     onPress={() => {
-                      navigation.navigate('ResetPassword', {})
+                      navigation.navigate('ResetPassword')
                     }}
                   >
                     <Text
@@ -87,7 +88,14 @@ export default function LoginScreen() {
               <View>
                 <Pressable
                   onPress={() => {}}
-                  style={tw`flex w-full justify-center bg-gray-900 dark:bg-gray-50 py-2 px-3`}
+                  style={({ pressed }) =>
+                    tw`${clsx(
+                      pressed
+                        ? 'bg-gray-700 dark:bg-gray-300'
+                        : 'bg-gray-900 dark:bg-gray-50',
+                      'flex w-full justify-center py-2 px-3'
+                    )}`
+                  }
                 >
                   <Text
                     style={tw`text-center font-loaded-bold text-lg text-white dark:text-gray-900`}
