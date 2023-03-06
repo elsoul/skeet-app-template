@@ -51,7 +51,7 @@ export default function LoginScreen() {
                 </Text>
                 <View style={tw`mt-2`}>
                   <TextInput
-                    style={tw`w-full border-2 border-gray-900 p-3 text-lg font-loaded-bold text-gray-900 dark:text-white sm:leading-6`}
+                    style={tw`w-full border-2 border-gray-900 dark:border-gray-50 p-3 text-lg font-loaded-bold text-gray-900 dark:text-white sm:leading-6`}
                   />
                 </View>
               </View>
@@ -63,7 +63,7 @@ export default function LoginScreen() {
                 </Text>
                 <View style={tw`mt-2`}>
                   <TextInput
-                    style={tw`w-full border-2 border-gray-900 p-3 text-lg font-loaded-bold text-gray-900 dark:text-white sm:leading-6`}
+                    style={tw`w-full border-2 border-gray-900 dark:border-gray-50 p-3 text-lg font-loaded-bold text-gray-900 dark:text-white sm:leading-6`}
                   />
                 </View>
               </View>
@@ -86,9 +86,7 @@ export default function LoginScreen() {
               </View>
               <View>
                 <Pressable
-                  onPress={() => {
-                    navigation.navigate('ResetPassword', {})
-                  }}
+                  onPress={() => {}}
                   style={tw`flex w-full justify-center bg-gray-900 dark:bg-gray-50 py-2 px-3`}
                 >
                   <Text
