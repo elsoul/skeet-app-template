@@ -23,7 +23,7 @@ export default function LanguageChanger() {
     <>
       <Menu>
         <MenuTrigger customStyles={tw`w-6 h-6`}>
-          <LanguageIcon style={tw`text-gray-700 dark:text-gray-200`} />
+          <LanguageIcon style={tw`w-5 h-5 text-gray-700 dark:text-gray-200`} />
         </MenuTrigger>
         <MenuOptions>
           <View style={tw`shadow-lg dark:bg-gray-900`}>

@@ -1,11 +1,11 @@
 import { Text } from 'react-native'
 import DefaultLayout from '@/layouts/default/DefaultLayout'
 
-export default function SignUpScreen() {
+export default function ResetPasswordScreen() {
   return (
     <>
       <DefaultLayout>
-        <Text>Sign Up</Text>
+        <Text>ResetPassword</Text>
       </DefaultLayout>
     </>
   )

@@ -1,6 +1,7 @@
 const routesEN = {
   Login: 'Sign In',
-  SignUp: 'Sign Up',
+  Register: 'Register',
+  ResetPassword: 'Reset Password',
   Action: 'Account Action',
   UserDashboard: 'Dashboard',
   UserSettings: 'Settings',

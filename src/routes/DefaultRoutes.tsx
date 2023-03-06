@@ -1,6 +1,7 @@
 import ActionScreen from '@/screens/ActionScreen'
 import LoginScreen from '@/screens/LoginScreen'
-import SignUpScreen from '@/screens/SignUpScreen'
+import RegisterScreen from '@/screens/RegisterScreen'
+import ResetPasswordScreen from '@/screens/ResetPasswordScreen'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 const Stack = createNativeStackNavigator()
@@ -13,7 +14,8 @@ export default function DefaultRoutes() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
         <Stack.Screen name="Action" component={ActionScreen} />
       </Stack.Navigator>
     </>

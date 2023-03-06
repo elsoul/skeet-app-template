@@ -17,7 +17,7 @@ export default function ColorModeChanger() {
         }}
         style={tw`hidden dark:flex hover:dark:text-gray-200`}
       >
-        <SunIcon style={tw`h-5 w-5  dark:text-gray-50`} />
+        <SunIcon style={tw`h-5 w-5 dark:text-gray-50`} />
       </Pressable>
       <Pressable
         onPress={() => {
