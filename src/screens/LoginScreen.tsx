@@ -21,7 +21,7 @@ export default function LoginScreen() {
           <View style={tw`sm:mx-auto sm:w-full sm:max-w-md`}>
             <LogoHorizontal />
             <Text
-              style={tw`font-loaded-bold mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white`}
+              style={tw`font-loaded-bold mt-6 text-center text-3xl tracking-tight text-gray-900 dark:text-white`}
             >
               {t('loginToYourAccount')}
             </Text>
@@ -35,7 +35,7 @@ export default function LoginScreen() {
               >
                 {t('or')}{' '}
                 <Text
-                  style={tw`font-medium text-indigo-500 dark:text-indigo-200`}
+                  style={tw`font-loaded-medium text-indigo-500 dark:text-indigo-200`}
                 >
                   {t('registerYourAccount')}
                 </Text>
@@ -78,7 +78,7 @@ export default function LoginScreen() {
                     }}
                   >
                     <Text
-                      style={tw`px-2 text-right font-medium text-indigo-500 dark:text-indigo-200`}
+                      style={tw`px-2 text-right font-loaded-medium text-indigo-500 dark:text-indigo-200`}
                     >
                       {t('forgotYourPassword')}
                     </Text>
