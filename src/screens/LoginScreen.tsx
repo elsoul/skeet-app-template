@@ -16,7 +16,7 @@ export default function LoginScreen() {
     <>
       <DefaultLayout>
         <View
-          style={tw`flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8`}
+          style={tw`flex h-full flex-col items-center justify-start py-12 sm:px-6 lg:px-8`}
         >
           <View style={tw`sm:mx-auto sm:w-full sm:max-w-md`}>
             <LogoHorizontal />
@@ -71,14 +71,14 @@ export default function LoginScreen() {
 
               <View style={tw`flex-row items-center`}>
                 <View style={tw`flex flex-1`}></View>
-                <View style={tw`flex flex-1 text-right`}>
+                <View style={tw`flex flex-1`}>
                   <Pressable
                     onPress={() => {
                       navigation.navigate('ResetPassword')
                     }}
                   >
                     <Text
-                      style={tw`px-2 font-medium text-indigo-500 dark:text-indigo-200`}
+                      style={tw`px-2 text-right font-medium text-indigo-500 dark:text-indigo-200`}
                     >
                       {t('forgotYourPassword')}
                     </Text>

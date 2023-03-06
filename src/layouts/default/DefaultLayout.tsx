@@ -18,9 +18,7 @@ export default function DefaultLayout({ children }: Props) {
 
   return (
     <>
-      <View
-        style={tw`relative max-w-full min-h-full bg-white dark:bg-gray-900`}
-      >
+      <View style={tw`relative w-full h-full bg-white dark:bg-gray-900`}>
         <SafeAreaView>
           <View style={tw`h-24 w-full bg-white dark:bg-gray-900`}>
             <View
@@ -51,7 +49,7 @@ export default function DefaultLayout({ children }: Props) {
               </View>
             </View>
           </View>
-          {children}
+          <View>{children}</View>
         </SafeAreaView>
       </View>
     </>
