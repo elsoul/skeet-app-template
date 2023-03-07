@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
 import clsx from 'clsx'
 import { useCallback } from 'react'
+import Toast from 'react-native-toast-message'
 
 export default function ResetPasswordScreen() {
   useColorModeRefresh()
@@ -16,6 +17,11 @@ export default function ResetPasswordScreen() {
 
   const resetPassword = useCallback(() => {
     navigation.navigate('CheckEmail')
+    Toast.show({
+      type: 'success',
+      text1: t('sentResetPasswordRequest') ?? 'Succeed Reset Password Request',
+      text2: t('confirmEmail') ?? 'Check your email',
+    })
   }, [navigation])
   return (
     <>

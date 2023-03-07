@@ -19,6 +19,11 @@ const translationEN = {
     urlError: 'Could not open the link',
     resetYourPassword: 'Reset your password',
     reset: 'Reset',
+    sentResetPasswordRequest: 'Succeed Reset Password Request',
+    confirmEmail: 'Please check you email',
+    thanksForRequest:
+      'Thank you. We sent the email for your confirmation so please check your registered email.',
+    backToLogin: 'Back to Login',
     dashboard,
     routes,
   },

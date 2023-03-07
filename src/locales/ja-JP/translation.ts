@@ -19,6 +19,11 @@ const translationJA = {
     urlError: '開けないURLです',
     resetYourPassword: 'パスワードのリセット',
     reset: 'リセット',
+    sentResetPasswordRequest: 'リセットリクエストを送信しました',
+    confirmEmail: 'メールを確認してください',
+    thanksForRequest:
+      'ありがとうございます。確認のためメールをお送りしましたので、ご登録のメールアドレスをご確認ください。',
+    backToLogin: 'ログイン画面に戻る',
     dashboard,
     routes,
   },
