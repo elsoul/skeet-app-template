@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "target": "skeet-app-template-pwa",
+    "public": "web-build",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}

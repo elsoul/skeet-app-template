@@ -1,4 +1,4 @@
-![Skeet Framework Logo](https://storage.googleapis.com/skeet-assets/imgs/logo/ogp.png)
+![Skeet App Template](https://storage.googleapis.com/skeet-assets/imgs/samples/skeet-app-template.png)
 
 <p align="center">
   <a href="https://twitter.com/intent/follow?screen_name=ELSOUL_LABO2">
@@ -45,8 +45,8 @@ React Native (Expo) App Environment for Skeet Framework
 - [x] [React i18n - Localization](https://react.i18next.com/)
 - [x] [twrnc - TailwindCSS](https://github.com/jaredh159/tailwind-react-native-classnames)
 - [x] [React Navigation - Routing](https://reactnavigation.org/)
+- [x] [Firebase - Hosting & Analytics](https://firebase.google.com/)
 - [ ] [Relay - GraphQL Client](https://relay.dev/)
-- [ ] [Firebase - Hosting & Analytics](https://firebase.google.com/)
 
 ## Quick start
 
@@ -58,7 +58,7 @@ v18.14.2
 # Install dependencies
 $ yarn install --frozen-lockfile
 
-# Run dev server (localhost:4200)
+# Run dev server
 $ yarn dev
 ```
 
@@ -83,8 +83,5 @@ $ firebase login:ci
 Needs to set Secrets on GitHub to work with GitHub Actions.
 
 ```
-BING_API_KEY
 FIREBASE_DEPLOY_TOKEN
 ```
-
-Also you need the BING_API_KEY for .env to send sitemap when `yarn deploy`
