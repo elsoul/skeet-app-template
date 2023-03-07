@@ -49,7 +49,7 @@ export default function DefaultLayout({ children }: Props) {
               </View>
             </View>
           </View>
-          <View>{children}</View>
+          {children}
         </SafeAreaView>
       </View>
     </>

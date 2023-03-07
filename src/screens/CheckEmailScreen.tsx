@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
 import clsx from 'clsx'
 
-export default function ResetPasswordScreen() {
+export default function CheckEmailScreen() {
   useColorModeRefresh()
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
