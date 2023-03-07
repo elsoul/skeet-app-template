@@ -3,8 +3,8 @@ import DefaultLayout from '@/layouts/default/DefaultLayout'
 import tw from '@/lib/tailwind'
 import { useTranslation } from 'react-i18next'
 import useColorModeRefresh from '@/hooks/useColorModeRefresh'
-import LogoHorizontal from '@/components/common/atoms/LogoHorizontal'
 import { useNavigation } from '@react-navigation/native'
+import { EnvelopeIcon } from 'react-native-heroicons/outline'
 
 export default function CheckEmailScreen() {
   useColorModeRefresh()
@@ -17,7 +17,9 @@ export default function CheckEmailScreen() {
           style={tw`flex h-full flex-col items-center justify-start py-18 sm:px-6 lg:px-8`}
         >
           <View style={tw`sm:mx-auto sm:w-full sm:max-w-md`}>
-            <LogoHorizontal />
+            <EnvelopeIcon
+              style={tw`w-24 h-24 mx-auto text-gray-900 dark:text-gray-50`}
+            />
             <Text
               style={tw`font-loaded-bold mt-6 text-center text-3xl tracking-tight text-gray-900 dark:text-white`}
             >

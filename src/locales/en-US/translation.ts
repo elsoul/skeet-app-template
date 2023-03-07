@@ -21,7 +21,7 @@ const translationEN = {
     resetYourPassword: 'Reset your password',
     reset: 'Reset',
     sentResetPasswordRequest: 'Succeed Reset Password Request',
-    confirmEmail: 'Please check you email',
+    confirmEmail: 'Please check your email',
     thanksForRequest:
       'Thank you. We sent the email for your confirmation so please check your registered email.',
     backToLogin: 'Back to Login',
