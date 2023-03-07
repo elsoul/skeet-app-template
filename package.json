@@ -5,6 +5,7 @@
     "pre-commit:format": "prettier --write --ignore-unknown .",
     "pre-commit:lint": "eslint",
     "pre-commit:typecheck": "tsc --noEmit",
+    "dev": "EXPO_USE_PATH_ALIASES=1 expo start -c",
     "android": "EXPO_USE_PATH_ALIASES=1 expo start --android",
     "ios": "EXPO_USE_PATH_ALIASES=1 expo start --ios",
     "web": "EXPO_USE_PATH_ALIASES=1 expo start --web",
