@@ -1,5 +1,6 @@
 import dashboard from './dashboard'
 import routes from './routes'
+import settings from './settings'
 
 const translationJA = {
   translation: {
@@ -24,8 +25,14 @@ const translationJA = {
     thanksForRequest:
       'ありがとうございます。確認のためメールをお送りしましたので、ご登録のメールアドレスをご確認ください。',
     backToLogin: 'ログイン画面に戻る',
+    succeedLogin: 'ログイン成功🎉',
+    howdy: 'おつかれさまです',
+    succeedLogout: 'ログアウトしました',
+    seeYouSoon: 'では、また👋',
+    logout: 'ログアウト',
     dashboard,
     routes,
+    settings,
   },
 }
 

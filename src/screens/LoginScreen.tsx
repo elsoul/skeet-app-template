@@ -7,11 +7,26 @@ import LogoHorizontal from '@/components/common/atoms/LogoHorizontal'
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
 import clsx from 'clsx'
+import { useCallback } from 'react'
+import { useRecoilState } from 'recoil'
+import { userState } from '@/store/user'
+import Toast from 'react-native-toast-message'
 
 export default function LoginScreen() {
   useColorModeRefresh()
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
+  const [user, setUser] = useRecoilState(userState)
+
+  const login = useCallback(() => {
+    Toast.show({
+      type: 'success',
+      text1: t('succeedLogin') ?? 'Succeed to sign in🎉',
+      text2: t('howdy') ?? 'Howdy?',
+    })
+    setUser({ ...user, uid: 'uid' })
+  }, [user])
+
   return (
     <>
       <DefaultLayout>
@@ -89,7 +104,9 @@ export default function LoginScreen() {
               </View>
               <View>
                 <Pressable
-                  onPress={() => {}}
+                  onPress={() => {
+                    login()
+                  }}
                   style={({ pressed }) =>
                     tw`${clsx(
                       pressed

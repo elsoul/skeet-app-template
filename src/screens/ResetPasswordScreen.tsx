@@ -23,6 +23,7 @@ export default function ResetPasswordScreen() {
       text2: t('confirmEmail') ?? 'Check your email',
     })
   }, [navigation])
+
   return (
     <>
       <DefaultLayout>
