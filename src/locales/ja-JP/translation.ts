@@ -17,6 +17,8 @@ const translationJA = {
     privacy: 'プライバシーポリシー',
     linkError: 'リンクエラー',
     urlError: '開けないURLです',
+    resetYourPassword: 'パスワードのリセット',
+    reset: 'リセット',
     dashboard,
     routes,
   },

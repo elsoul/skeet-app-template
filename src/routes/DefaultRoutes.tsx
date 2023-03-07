@@ -3,7 +3,6 @@ import LoginScreen from '@/screens/LoginScreen'
 import RegisterScreen from '@/screens/RegisterScreen'
 import ResetPasswordScreen from '@/screens/ResetPasswordScreen'
 import CheckEmailScreen from '@/screens/CheckEmailScreen'
-import PrivacyScreen from '@/screens/PrivacyScreen'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 const Stack = createNativeStackNavigator()

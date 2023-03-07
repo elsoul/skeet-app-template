@@ -17,6 +17,8 @@ const translationEN = {
     privacy: 'Privacy Policy',
     linkError: 'Link Error',
     urlError: 'Could not open the link',
+    resetYourPassword: 'Reset your password',
+    reset: 'Reset',
     dashboard,
     routes,
   },

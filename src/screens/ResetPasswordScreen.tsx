@@ -7,11 +7,16 @@ import LogoHorizontal from '@/components/common/atoms/LogoHorizontal'
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
 import clsx from 'clsx'
+import { useCallback } from 'react'
 
 export default function ResetPasswordScreen() {
   useColorModeRefresh()
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
+
+  const resetPassword = useCallback(() => {
+    navigation.navigate('CheckEmail')
+  }, [navigation])
   return (
     <>
       <DefaultLayout>
@@ -23,7 +28,7 @@ export default function ResetPasswordScreen() {
             <Text
               style={tw`font-loaded-bold mt-6 text-center text-3xl tracking-tight text-gray-900 dark:text-white`}
             >
-              {t('loginToYourAccount')}
+              {t('resetYourPassword')}
             </Text>
             <Pressable
               onPress={() => {
@@ -58,38 +63,10 @@ export default function ResetPasswordScreen() {
                 </View>
               </View>
               <View>
-                <Text
-                  style={tw`text-sm font-loaded-medium leading-6 text-gray-900 dark:text-gray-50`}
-                >
-                  {t('password')}
-                </Text>
-                <View style={tw`mt-2`}>
-                  <TextInput
-                    style={tw`w-full border-2 border-gray-900 dark:border-gray-50 p-3 text-lg font-loaded-bold text-gray-900 dark:text-white sm:leading-6`}
-                    secureTextEntry={true}
-                  />
-                </View>
-              </View>
-
-              <View style={tw`flex-row items-center`}>
-                <View style={tw`flex flex-1`}></View>
-                <View style={tw`flex flex-1`}>
-                  <Pressable
-                    onPress={() => {
-                      navigation.navigate('ResetPassword')
-                    }}
-                  >
-                    <Text
-                      style={tw`px-2 text-right font-loaded-medium text-indigo-500 dark:text-indigo-200`}
-                    >
-                      {t('forgotYourPassword')}
-                    </Text>
-                  </Pressable>
-                </View>
-              </View>
-              <View>
                 <Pressable
-                  onPress={() => {}}
+                  onPress={() => {
+                    resetPassword()
+                  }}
                   style={({ pressed }) =>
                     tw`${clsx(
                       pressed
@@ -102,7 +79,7 @@ export default function ResetPasswordScreen() {
                   <Text
                     style={tw`text-center font-loaded-bold text-lg text-white dark:text-gray-900`}
                   >
-                    {t('login')}
+                    {t('reset')}
                   </Text>
                 </Pressable>
               </View>
