@@ -1,10 +1,8 @@
 {
   "scripts": {
-    "prepare": "husky install",
-    "pre-commit": "run-p 'pre-commit:*'",
-    "pre-commit:format": "prettier --write --ignore-unknown .",
-    "pre-commit:lint": "eslint",
-    "pre-commit:typecheck": "tsc --noEmit",
+    "format": "prettier --write --ignore-unknown .",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
     "dev": "EXPO_USE_PATH_ALIASES=1 expo start -c",
     "android": "EXPO_USE_PATH_ALIASES=1 expo start --android",
     "ios": "EXPO_USE_PATH_ALIASES=1 expo start --ios",
@@ -69,7 +67,6 @@
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-native": "4.0.0",
-    "husky": "8.0.3",
     "npm-check-updates": "16.7.10",
     "prettier": "2.8.4",
     "prettier-plugin-tailwindcss": "0.2.4",
