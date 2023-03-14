@@ -22,6 +22,9 @@ const translationJA = {
     reset: 'リセット',
     sentResetPasswordRequest: 'リセットリクエストを送信しました',
     confirmEmail: 'メールを確認してください',
+    sentConfirmEmailTitle: '確認メールを送信しました',
+    sentConfirmEmailBody:
+      'ご登録ありがとうございます。メールボックスをご確認ください。',
     thanksForRequest:
       'ありがとうございます。確認のためメールをお送りしましたので、ご登録のメールアドレスをご確認ください。',
     backToLogin: 'ログイン画面に戻る',

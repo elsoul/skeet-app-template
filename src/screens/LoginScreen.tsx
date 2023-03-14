@@ -7,18 +7,17 @@ import LogoHorizontal from '@/components/common/atoms/LogoHorizontal'
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
 import clsx from 'clsx'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { userState } from '@/store/user'
 import Toast from 'react-native-toast-message'
 import useAnalytics from '@/hooks/useAnalytics'
-import { firebaseState } from '@/store/firebase'
 import {
-  getAuth,
   signInWithEmailAndPassword,
   sendEmailVerification,
 } from 'firebase/auth'
 import { emailSchema, passwordSchema } from '@/utils/form'
+import { firebaseAuth } from '@/lib/firebase'
 
 export default function LoginScreen() {
   useColorModeRefresh()
@@ -26,7 +25,6 @@ export default function LoginScreen() {
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
   const [user, setUser] = useRecoilState(userState)
-  const [firebase, setFirebase] = useRecoilState(firebaseState)
   const [isLoading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
@@ -50,30 +48,20 @@ export default function LoginScreen() {
     }
   }, [password, setPasswordError])
 
-  useEffect(() => {
-    if (!firebase.auth && firebase.firebaseApp) {
-      setFirebase({
-        ...firebase,
-        auth: getAuth(firebase.firebaseApp),
-      })
-    }
-  }, [firebase, setFirebase])
-
   const validate = useCallback(() => {
     validateEmail()
     validatePassword()
   }, [validateEmail, validatePassword])
 
   const login = useCallback(async () => {
-    if (firebase.auth && emailError === '' && passwordError === '') {
+    if (firebaseAuth && emailError === '' && passwordError === '') {
       try {
         setLoading(true)
         const userCredential = await signInWithEmailAndPassword(
-          firebase.auth,
+          firebaseAuth,
           email,
           password
         )
-        console.log(userCredential)
         if (!userCredential.user.emailVerified) {
           await sendEmailVerification(userCredential.user)
           throw new Error('Not verified')
@@ -92,7 +80,7 @@ export default function LoginScreen() {
           uid: userCredential.user.uid,
         })
       } catch (err) {
-        console.log(err)
+        console.error(err)
         if (err instanceof Error && err.message === 'Not verified') {
           Toast.show({
             type: 'error',
@@ -114,16 +102,7 @@ export default function LoginScreen() {
         setLoading(false)
       }
     }
-  }, [
-    firebase.auth,
-    user,
-    setUser,
-    t,
-    email,
-    password,
-    emailError,
-    passwordError,
-  ])
+  }, [user, setUser, t, email, password, emailError, passwordError])
 
   return (
     <>

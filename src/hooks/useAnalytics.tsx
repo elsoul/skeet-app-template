@@ -1,13 +1,12 @@
-import { useRecoilValue } from 'recoil'
 import { useEffect } from 'react'
-import { firebaseState } from '@/store/firebase'
 import { useRoute } from '@react-navigation/native'
 import { logEvent } from 'firebase/analytics'
 import { useTranslation } from 'react-i18next'
+import { analytics } from '@/lib/firebase'
 
 export default function useAnalytics() {
   const { t } = useTranslation()
-  const { analytics } = useRecoilValue(firebaseState)
+
   const route = useRoute()
 
   useEffect(() => {
@@ -18,5 +17,5 @@ export default function useAnalytics() {
         page_path: `/${route.name}`,
       })
     }
-  }, [analytics, route.name, t])
+  }, [route.name, t])
 }

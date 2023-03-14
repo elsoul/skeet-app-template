@@ -7,15 +7,18 @@ import LogoHorizontal from '@/components/common/atoms/LogoHorizontal'
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
 import clsx from 'clsx'
-import { useCallback, useState, useEffect } from 'react'
+import { useCallback, useState } from 'react'
 import { openUrl } from '@/utils/link'
 import Checkbox from 'expo-checkbox'
 import useAnalytics from '@/hooks/useAnalytics'
-import { useRecoilState } from 'recoil'
-import { firebaseState } from '@/store/firebase'
-import { getAuth } from 'firebase/auth'
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  sendEmailVerification,
+} from 'firebase/auth'
 import Toast from 'react-native-toast-message'
 import { emailSchema, passwordSchema } from '@/utils/form'
+import { firebaseAuth } from '@/lib/firebase'
 
 export default function RegisterScreen() {
   useColorModeRefresh()
@@ -24,7 +27,6 @@ export default function RegisterScreen() {
   const navigation = useNavigation<any>()
   const [isChecked, setChecked] = useState(false)
   const [isLoading, setLoading] = useState(false)
-  const [firebase, setFirebase] = useRecoilState(firebaseState)
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
   const validateEmail = useCallback(() => {
@@ -47,26 +49,32 @@ export default function RegisterScreen() {
     }
   }, [password, setPasswordError])
 
-  useEffect(() => {
-    if (!firebase.auth && firebase.firebaseApp) {
-      setFirebase({
-        ...firebase,
-        auth: getAuth(firebase.firebaseApp),
-      })
-    }
-  }, [firebase, setFirebase])
-
   const validate = useCallback(() => {
     validateEmail()
     validatePassword()
   }, [validateEmail, validatePassword])
 
   const signUp = useCallback(async () => {
-    if (firebase.auth && emailError === '' && passwordError === '') {
+    if (firebaseAuth && emailError === '' && passwordError === '') {
       try {
         setLoading(true)
+        const userCredential = await createUserWithEmailAndPassword(
+          firebaseAuth,
+          email,
+          password
+        )
+
+        await sendEmailVerification(userCredential.user)
+        Toast.show({
+          type: 'success',
+          text1: t('sentConfirmEmailTitle') ?? 'Sent confirmation email',
+          text2:
+            t('sentConfirmEmailBody') ??
+            'Thank you for your registration. Please check your email.',
+        })
+        navigation.navigate('CheckEmail')
       } catch (err) {
-        console.log(err)
+        console.error(err)
         if (err instanceof Error && err.message === 'inputError') {
           return
         } else {
@@ -82,7 +90,7 @@ export default function RegisterScreen() {
         setLoading(false)
       }
     }
-  }, [firebase.auth, emailError, passwordError, t])
+  }, [emailError, passwordError, t, email, password, navigation])
 
   return (
     <>
