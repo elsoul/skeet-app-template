@@ -7,10 +7,15 @@ import LogoHorizontal from '@/components/common/atoms/LogoHorizontal'
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
 import clsx from 'clsx'
-import { useState } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import { openUrl } from '@/utils/link'
 import Checkbox from 'expo-checkbox'
 import useAnalytics from '@/hooks/useAnalytics'
+import { useRecoilState } from 'recoil'
+import { firebaseState } from '@/store/firebase'
+import { getAuth } from 'firebase/auth'
+import Toast from 'react-native-toast-message'
+import { emailSchema, passwordSchema } from '@/utils/form'
 
 export default function RegisterScreen() {
   useColorModeRefresh()
@@ -18,6 +23,67 @@ export default function RegisterScreen() {
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
   const [isChecked, setChecked] = useState(false)
+  const [isLoading, setLoading] = useState(false)
+  const [firebase, setFirebase] = useRecoilState(firebaseState)
+  const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState('')
+  const validateEmail = useCallback(() => {
+    try {
+      emailSchema.parse(email)
+      setEmailError('')
+    } catch (err) {
+      setEmailError('emailErrorText')
+    }
+  }, [email, setEmailError])
+
+  const [password, setPassword] = useState('')
+  const [passwordError, setPasswordError] = useState('')
+  const validatePassword = useCallback(() => {
+    try {
+      passwordSchema.parse(password)
+      setPasswordError('')
+    } catch (err) {
+      setPasswordError('passwordErrorText')
+    }
+  }, [password, setPasswordError])
+
+  useEffect(() => {
+    if (!firebase.auth && firebase.firebaseApp) {
+      setFirebase({
+        ...firebase,
+        auth: getAuth(firebase.firebaseApp),
+      })
+    }
+  }, [firebase, setFirebase])
+
+  const validate = useCallback(() => {
+    validateEmail()
+    validatePassword()
+  }, [validateEmail, validatePassword])
+
+  const signUp = useCallback(async () => {
+    if (firebase.auth && emailError === '' && passwordError === '') {
+      try {
+        setLoading(true)
+      } catch (err) {
+        console.log(err)
+        if (err instanceof Error && err.message === 'inputError') {
+          return
+        } else {
+          Toast.show({
+            type: 'error',
+            text1: t('errorLoginTitle') ?? 'Failed to sign in.',
+            text2:
+              t('errorLoginBody') ??
+              'Something went wrong... Please try it again.',
+          })
+        }
+      } finally {
+        setLoading(false)
+      }
+    }
+  }, [firebase.auth, emailError, passwordError, t])
+
   return (
     <>
       <DefaultLayout>
@@ -55,11 +121,19 @@ export default function RegisterScreen() {
                   style={tw`text-sm font-loaded-medium leading-6 text-gray-900 dark:text-gray-50`}
                 >
                   {t('email')}
+                  {emailError !== '' && (
+                    <Text style={tw`text-red-500 dark:text-red-300 text-xs`}>
+                      {' : '}
+                      {t(emailError)}
+                    </Text>
+                  )}
                 </Text>
                 <View style={tw`mt-2`}>
                   <TextInput
                     style={tw`w-full border-2 border-gray-900 dark:border-gray-50 p-3 text-lg font-loaded-bold text-gray-900 dark:text-white sm:leading-6`}
                     inputMode="email"
+                    value={email}
+                    onChangeText={setEmail}
                   />
                 </View>
               </View>
@@ -68,11 +142,19 @@ export default function RegisterScreen() {
                   style={tw`text-sm font-loaded-medium leading-6 text-gray-900 dark:text-gray-50`}
                 >
                   {t('password')}
+                  {passwordError !== '' && (
+                    <Text style={tw`text-red-500 dark:text-red-300 text-xs`}>
+                      {' : '}
+                      {t(passwordError)}
+                    </Text>
+                  )}
                 </Text>
                 <View style={tw`mt-2`}>
                   <TextInput
                     style={tw`w-full border-2 border-gray-900 dark:border-gray-50 p-3 text-lg font-loaded-bold text-gray-900 dark:text-white sm:leading-6`}
                     secureTextEntry={true}
+                    value={password}
+                    onChangeText={setPassword}
                   />
                 </View>
               </View>
@@ -108,8 +190,11 @@ export default function RegisterScreen() {
               </View>
               <View>
                 <Pressable
-                  onPress={() => {}}
-                  disabled={!isChecked}
+                  onPress={() => {
+                    validate()
+                    signUp()
+                  }}
+                  disabled={!isChecked || isLoading}
                   style={({ pressed }) =>
                     tw`${clsx(
                       pressed

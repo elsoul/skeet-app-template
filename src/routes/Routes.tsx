@@ -43,7 +43,7 @@ export default function Routes() {
         })
       }
     }
-  }, [firebase])
+  }, [firebase.firebaseApp, firebase.analytics])
 
   return (
     <>

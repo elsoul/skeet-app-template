@@ -51,7 +51,8 @@
     "react-native-utilities": "0.1.7",
     "react-native-web": "0.18.12",
     "recoil": "0.7.7",
-    "twrnc": "3.6.0"
+    "twrnc": "3.6.0",
+    "zod": "3.21.4"
   },
   "devDependencies": {
     "@babel/core": "7.21.0",
@@ -67,6 +68,7 @@
     "eslint": "8.35.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-native": "4.0.0",
     "npm-check-updates": "16.7.10",
     "prettier": "2.8.4",

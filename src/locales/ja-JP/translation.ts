@@ -27,6 +27,13 @@ const translationJA = {
     backToLogin: 'ログイン画面に戻る',
     succeedLogin: 'ログイン成功🎉',
     howdy: 'おつかれさまです',
+    errorLoginTitle: 'ログイン失敗',
+    errorLoginBody: '大変お手数おかけしますが、もう一度お試しください。',
+    emailErrorText: 'メールアドレスを入力してください。',
+    passwordErrorText: '8文字以上のパスワードを入力してください。',
+    errorNotVerifiedTitle: 'まだ認証されていません',
+    errorNotVerifiedBody:
+      '認証メールをお送りいたしました。メールボックスを確認してください。',
     succeedLogout: 'ログアウトしました',
     seeYouSoon: 'では、また👋',
     logout: 'ログアウト',

@@ -1,11 +1,13 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "react-native/react-native": true
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react-native/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react-native/all",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
@@ -15,6 +17,10 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react-native", "@typescript-eslint"],
-  "rules": {}
+  "plugins": ["react-native", "@typescript-eslint", "react-hooks"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-explicit-any": 0
+  }
 }
