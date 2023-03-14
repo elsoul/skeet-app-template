@@ -1,6 +1,7 @@
 import UserDashboardScreen from '@/screens/user/UserDashboardScreen'
 import UserSettingsScreen from '@/screens/user/UserSettingsScreen'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { useEffect } from 'react'
 
 const Stack = createNativeStackNavigator()
 

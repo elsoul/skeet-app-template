@@ -5,9 +5,11 @@ import ColorModeChanger from '@/components/utils/ColorModeChanger'
 import useColorModeRefresh from '@/hooks/useColorModeRefresh'
 import { useTranslation } from 'react-i18next'
 import UserLayout from '@/layouts/user/UserLayout'
+import useAnalytics from '@/hooks/useAnalytics'
 
 export default function UserSettingsScreen() {
   useColorModeRefresh()
+  useAnalytics()
   const { t } = useTranslation()
 
   return (

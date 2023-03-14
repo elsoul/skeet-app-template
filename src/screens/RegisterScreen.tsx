@@ -10,9 +10,11 @@ import clsx from 'clsx'
 import { useState } from 'react'
 import { openUrl } from '@/utils/link'
 import Checkbox from 'expo-checkbox'
+import useAnalytics from '@/hooks/useAnalytics'
 
 export default function RegisterScreen() {
   useColorModeRefresh()
+  useAnalytics()
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
   const [isChecked, setChecked] = useState(false)

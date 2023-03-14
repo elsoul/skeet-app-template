@@ -5,9 +5,11 @@ import { useTranslation } from 'react-i18next'
 import useColorModeRefresh from '@/hooks/useColorModeRefresh'
 import { useNavigation } from '@react-navigation/native'
 import { EnvelopeIcon } from 'react-native-heroicons/outline'
+import useAnalytics from '@/hooks/useAnalytics'
 
 export default function CheckEmailScreen() {
   useColorModeRefresh()
+  useAnalytics()
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
   return (

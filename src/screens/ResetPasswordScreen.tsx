@@ -9,9 +9,11 @@ import { TextInput } from 'react-native-gesture-handler'
 import clsx from 'clsx'
 import { useCallback } from 'react'
 import Toast from 'react-native-toast-message'
+import useAnalytics from '@/hooks/useAnalytics'
 
 export default function ResetPasswordScreen() {
   useColorModeRefresh()
+  useAnalytics()
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
 

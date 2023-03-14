@@ -5,9 +5,11 @@ import { useTranslation } from 'react-i18next'
 import useColorModeRefresh from '@/hooks/useColorModeRefresh'
 import LogoHorizontal from '@/components/common/atoms/LogoHorizontal'
 import { openUrl } from '@/utils/link'
+import useAnalytics from '@/hooks/useAnalytics'
 
 export default function UserDashboardScreen() {
   useColorModeRefresh()
+  useAnalytics()
   const { t } = useTranslation()
   return (
     <>

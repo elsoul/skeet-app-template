@@ -11,9 +11,11 @@ import { useCallback } from 'react'
 import { useRecoilState } from 'recoil'
 import { userState } from '@/store/user'
 import Toast from 'react-native-toast-message'
+import useAnalytics from '@/hooks/useAnalytics'
 
 export default function LoginScreen() {
   useColorModeRefresh()
+  useAnalytics()
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
   const [user, setUser] = useRecoilState(userState)
