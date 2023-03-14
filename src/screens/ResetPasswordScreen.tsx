@@ -24,7 +24,7 @@ export default function ResetPasswordScreen() {
       text1: t('sentResetPasswordRequest') ?? 'Succeed Reset Password Request',
       text2: t('confirmEmail') ?? 'Check your email',
     })
-  }, [navigation])
+  }, [navigation, t])
 
   return (
     <>

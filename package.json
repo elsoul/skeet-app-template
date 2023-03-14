@@ -1,7 +1,7 @@
 {
   "scripts": {
     "format": "prettier --write --ignore-unknown .",
-    "lint": "eslint",
+    "lint": "eslint --ext .ts,.tsx --fix .",
     "typecheck": "tsc --noEmit",
     "dev": "EXPO_USE_PATH_ALIASES=1 expo start -c",
     "android": "EXPO_USE_PATH_ALIASES=1 expo start --android",

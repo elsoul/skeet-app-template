@@ -18,5 +18,5 @@ export default function useAnalytics() {
         page_path: `/${route.name}`,
       })
     }
-  }, [analytics, route.name])
+  }, [analytics, route.name, t])
 }

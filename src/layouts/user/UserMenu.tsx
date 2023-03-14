@@ -29,7 +29,7 @@ export default function UserMenu() {
       ...user,
       uid: '',
     })
-  }, [user])
+  }, [user, setUser, t])
 
   return (
     <>
