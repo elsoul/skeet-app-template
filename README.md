@@ -46,7 +46,7 @@ React Native (Expo) App Environment for Skeet Framework
 - [x] [React i18n - Localization](https://react.i18next.com/)
 - [x] [twrnc - TailwindCSS](https://github.com/jaredh159/tailwind-react-native-classnames)
 - [x] [React Navigation - Routing](https://reactnavigation.org/)
-- [x] [Firebase - Hosting & Analytics](https://firebase.google.com/)
+- [x] [Firebase - Hosting, Analytics & Authentication](https://firebase.google.com/)
 - [ ] [Relay - GraphQL Client](https://relay.dev/)
 
 ## Quick start
