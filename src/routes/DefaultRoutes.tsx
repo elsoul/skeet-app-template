@@ -11,14 +11,14 @@ export default function DefaultRoutes() {
   return (
     <>
       <Stack.Navigator
-        initialRouteName="login"
+        initialRouteName="Login"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name="login" component={LoginScreen} />
-        <Stack.Screen name="register" component={RegisterScreen} />
-        <Stack.Screen name="reset-password" component={ResetPasswordScreen} />
-        <Stack.Screen name="check-email" component={CheckEmailScreen} />
-        <Stack.Screen name="action" component={ActionScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
+        <Stack.Screen name="CheckEmail" component={CheckEmailScreen} />
+        <Stack.Screen name="Action" component={ActionScreen} />
       </Stack.Navigator>
     </>
   )

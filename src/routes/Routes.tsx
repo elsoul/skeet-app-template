@@ -24,7 +24,23 @@ export default function Routes() {
       prefixes: [prefix, 'https://app-template-pwa.skeet.dev/'],
       config: {
         screens: {
-          default: '',
+          Default: {
+            path: '',
+            screens: {
+              Login: 'login',
+              Register: 'register',
+              ResetPassword: 'reset-password',
+              CheckEmail: 'check-email',
+              Action: 'action',
+            },
+          },
+          User: {
+            path: 'user',
+            screens: {
+              UserDashboard: 'dashboard',
+              UserSettings: 'settings',
+            },
+          },
         },
       },
     }),
@@ -43,12 +59,12 @@ export default function Routes() {
       >
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName={isLoggedIn ? 'user' : 'default'}
+          initialRouteName={isLoggedIn ? 'User' : 'Default'}
         >
           {isLoggedIn ? (
-            <Stack.Screen name="user" component={UserRoutes} />
+            <Stack.Screen name="User" component={UserRoutes} />
           ) : (
-            <Stack.Screen name="default" component={DefaultRoutes} />
+            <Stack.Screen name="Default" component={DefaultRoutes} />
           )}
         </Stack.Navigator>
       </NavigationContainer>
