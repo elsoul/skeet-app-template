@@ -2,6 +2,12 @@
   "hosting": {
     "target": "skeet-app-template-pwa",
     "public": "web-build",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
