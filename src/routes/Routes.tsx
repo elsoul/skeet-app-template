@@ -8,6 +8,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import AppLoading from '@/components/loading/AppLoading'
 import { useTranslation } from 'react-i18next'
 import * as Linking from 'expo-linking'
+import appConfig from '@/config/app'
 
 const Stack = createNativeStackNavigator()
 const prefix = Linking.createURL('/')
@@ -21,7 +22,7 @@ export default function Routes() {
 
   const linking = useMemo(
     () => ({
-      prefixes: [prefix, 'https://app-template-pwa.skeet.dev/'],
+      prefixes: [prefix, `https://${appConfig.domain}/`],
       config: {
         screens: {
           Default: {

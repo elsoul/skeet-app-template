@@ -13,17 +13,30 @@ import Checkbox from 'expo-checkbox'
 import useAnalytics from '@/hooks/useAnalytics'
 import {
   createUserWithEmailAndPassword,
-  getAuth,
   sendEmailVerification,
 } from 'firebase/auth'
 import Toast from 'react-native-toast-message'
 import { emailSchema, passwordSchema } from '@/utils/form'
 import { firebaseAuth } from '@/lib/firebase'
+import appConfig from '@/config/app'
+
+const actionCodeSettings = {
+  url: `https://${appConfig.domain}/action`,
+  iOS: {
+    bundleId: appConfig.iosId,
+  },
+  android: {
+    packageName: appConfig.androidId,
+    installApp: true,
+    minimumVersion: '12',
+  },
+  handleCodeInApp: true,
+}
 
 export default function RegisterScreen() {
   useColorModeRefresh()
   useAnalytics()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const navigation = useNavigation<any>()
   const [isChecked, setChecked] = useState(false)
   const [isLoading, setLoading] = useState(false)
@@ -58,13 +71,14 @@ export default function RegisterScreen() {
     if (firebaseAuth && emailError === '' && passwordError === '') {
       try {
         setLoading(true)
+        firebaseAuth.languageCode = i18n.language === 'ja-JP' ? 'ja' : 'en'
         const userCredential = await createUserWithEmailAndPassword(
           firebaseAuth,
           email,
           password
         )
 
-        await sendEmailVerification(userCredential.user)
+        await sendEmailVerification(userCredential.user, actionCodeSettings)
         Toast.show({
           type: 'success',
           text1: t('sentConfirmEmailTitle') ?? 'Sent confirmation email',
@@ -90,7 +104,7 @@ export default function RegisterScreen() {
         setLoading(false)
       }
     }
-  }, [emailError, passwordError, t, email, password, navigation])
+  }, [emailError, passwordError, t, email, password, navigation, i18n.language])
 
   return (
     <>
