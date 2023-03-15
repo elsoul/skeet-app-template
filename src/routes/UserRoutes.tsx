@@ -8,11 +8,11 @@ export default function UserRoutes() {
   return (
     <>
       <Stack.Navigator
-        initialRouteName="UserDashboard"
+        initialRouteName="dashboard"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name="UserDashboard" component={UserDashboardScreen} />
-        <Stack.Screen name="UserSettings" component={UserSettingsScreen} />
+        <Stack.Screen name="dashboard" component={UserDashboardScreen} />
+        <Stack.Screen name="settings" component={UserSettingsScreen} />
       </Stack.Navigator>
     </>
   )

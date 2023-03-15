@@ -1,11 +1,11 @@
 const routesEN = {
-  Login: 'Sign In',
-  Register: 'Register',
-  ResetPassword: 'Reset Password',
-  CheckEmail: 'Check the email from us',
-  Action: 'Account Action',
-  UserDashboard: 'Dashboard',
-  UserSettings: 'Settings',
+  login: 'Sign In',
+  register: 'Register',
+  'reset-password': 'Reset Password',
+  'check-email': 'Check the email from us',
+  action: 'Account Action',
+  dashboard: 'Dashboard',
+  settings: 'Settings',
 }
 
 export default routesEN

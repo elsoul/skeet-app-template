@@ -18,7 +18,7 @@ export default function ResetPasswordScreen() {
   const navigation = useNavigation<any>()
 
   const resetPassword = useCallback(() => {
-    navigation.navigate('CheckEmail')
+    navigation.navigate('check-email')
     Toast.show({
       type: 'success',
       text1: t('sentResetPasswordRequest') ?? 'Succeed Reset Password Request',
@@ -41,7 +41,7 @@ export default function ResetPasswordScreen() {
             </Text>
             <Pressable
               onPress={() => {
-                navigation.navigate('Register')
+                navigation.navigate('register')
               }}
             >
               <Text

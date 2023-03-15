@@ -7,8 +7,10 @@ import DefaultRoutes from './DefaultRoutes'
 import { NavigationContainer } from '@react-navigation/native'
 import AppLoading from '@/components/loading/AppLoading'
 import { useTranslation } from 'react-i18next'
+import * as Linking from 'expo-linking'
 
 const Stack = createNativeStackNavigator()
+const prefix = Linking.createURL('/')
 
 export default function Routes() {
   const { t } = useTranslation()
@@ -16,6 +18,18 @@ export default function Routes() {
   const isLoggedIn = useMemo(() => {
     return user.uid !== ''
   }, [user])
+
+  const linking = useMemo(
+    () => ({
+      prefixes: [prefix, 'https://app-template-pwa.skeet.dev/'],
+      config: {
+        screens: {
+          default: '',
+        },
+      },
+    }),
+    []
+  )
 
   return (
     <>
@@ -25,15 +39,16 @@ export default function Routes() {
             `${t(`routes.${route?.name}`)} - ${t('appTitle')}`,
         }}
         fallback={<AppLoading />}
+        linking={linking}
       >
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName={isLoggedIn ? 'User' : 'Default'}
+          initialRouteName={isLoggedIn ? 'user' : 'default'}
         >
           {isLoggedIn ? (
-            <Stack.Screen name="User" component={UserRoutes} />
+            <Stack.Screen name="user" component={UserRoutes} />
           ) : (
-            <Stack.Screen name="Default" component={DefaultRoutes} />
+            <Stack.Screen name="default" component={DefaultRoutes} />
           )}
         </Stack.Navigator>
       </NavigationContainer>

@@ -34,7 +34,7 @@ export default function CheckEmailScreen() {
             </Text>
             <Pressable
               onPress={() => {
-                navigation.navigate('Login')
+                navigation.navigate('login')
               }}
             >
               <Text

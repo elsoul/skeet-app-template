@@ -72,7 +72,7 @@ export default function RegisterScreen() {
             t('sentConfirmEmailBody') ??
             'Thank you for your registration. Please check your email.',
         })
-        navigation.navigate('CheckEmail')
+        navigation.navigate('check-email')
       } catch (err) {
         console.error(err)
         if (err instanceof Error && err.message === 'inputError') {
@@ -107,7 +107,7 @@ export default function RegisterScreen() {
             </Text>
             <Pressable
               onPress={() => {
-                navigation.navigate('Login')
+                navigation.navigate('login')
               }}
             >
               <Text

@@ -2,12 +2,9 @@
   "expo": {
     "name": "skeet-app-template",
     "slug": "skeet-app-template",
+    "scheme": "skeetapptemplate",
     "owner": "elsoul-labo",
-    "platforms": [
-      "web",
-      "ios",
-      "android"
-    ],
+    "platforms": ["web", "ios", "android"],
     "githubUrl": "https://github.com/elsoul/skeet-app-template",
     "version": "0.1.0",
     "orientation": "portrait",
@@ -18,9 +15,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.elsoullabo.skeetapptemplate"

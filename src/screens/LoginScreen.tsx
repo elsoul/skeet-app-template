@@ -119,7 +119,7 @@ export default function LoginScreen() {
             </Text>
             <Pressable
               onPress={() => {
-                navigation.navigate('Register')
+                navigation.navigate('register')
               }}
             >
               <Text
@@ -184,7 +184,7 @@ export default function LoginScreen() {
                 <View style={tw`flex flex-1`}>
                   <Pressable
                     onPress={() => {
-                      navigation.navigate('ResetPassword')
+                      navigation.navigate('reset-password')
                     }}
                   >
                     <Text

@@ -1,11 +1,11 @@
 const routesJA = {
-  Login: 'ログイン',
-  Register: 'アカウント作成',
-  ResetPassword: 'パスワードリセット',
-  CheckEmail: 'メールを確認してください',
-  Action: 'アカウントアクション',
-  UserDashboard: 'ダッシュボード',
-  UserSettings: '設定',
+  login: 'ログイン',
+  register: 'アカウント作成',
+  'reset-password': 'パスワードリセット',
+  'check-email': 'メールを確認してください',
+  action: 'アカウントアクション',
+  dashboard: 'ダッシュボード',
+  settings: '設定',
 }
 
 export default routesJA
