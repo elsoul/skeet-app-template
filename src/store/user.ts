@@ -10,6 +10,7 @@ export type UserState = {
   githubUid: string
   iconUrl: string
   role: string
+  skeetToken: string
 }
 
 export const userState = atom<UserState>({
@@ -23,6 +24,7 @@ export const userState = atom<UserState>({
     githubUid: '',
     iconUrl: '',
     role: 'user',
+    skeetToken: '',
   },
   effects_UNSTABLE: [ReactNativeRecoilPersist.persistAtom],
 })

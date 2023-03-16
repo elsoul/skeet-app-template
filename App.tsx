@@ -12,7 +12,7 @@ import {
 
 import AppLoading from '@/components/loading/AppLoading'
 import { Suspense } from 'react'
-import { RecoilRoot } from 'recoil'
+import { RecoilRoot, useRecoilValue } from 'recoil'
 import ReactNativeRecoilPersist, {
   ReactNativeRecoilPersistGate,
 } from 'react-native-recoil-persist'
@@ -20,6 +20,9 @@ import { MenuProvider } from 'react-native-popup-menu'
 import Toast from 'react-native-toast-message'
 import { toastConfig } from '@/lib/toast'
 import Routes from '@/routes/Routes'
+import { RelayEnvironmentProvider } from 'react-relay'
+import { createEnvironment } from '@/lib/relayEnvironment'
+import { userState } from '@/store/user'
 
 export default function App() {
   useDeviceContext(tw)
@@ -44,13 +47,24 @@ export default function App() {
       <Suspense fallback={<AppLoading />}>
         <RecoilRoot>
           <ReactNativeRecoilPersistGate store={ReactNativeRecoilPersist}>
-            <MenuProvider>
-              <Routes />
-              <Toast config={toastConfig} />
-            </MenuProvider>
+            <SkeetApp />
           </ReactNativeRecoilPersistGate>
         </RecoilRoot>
       </Suspense>
+    </>
+  )
+}
+
+function SkeetApp() {
+  const { skeetToken } = useRecoilValue(userState)
+  return (
+    <>
+      <RelayEnvironmentProvider environment={createEnvironment(skeetToken)}>
+        <MenuProvider>
+          <Routes />
+          <Toast config={toastConfig} />
+        </MenuProvider>
+      </RelayEnvironmentProvider>
     </>
   )
 }

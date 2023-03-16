@@ -39,7 +39,7 @@ React Native (Expo) App Environment for Skeet Framework
 - [x] [React Native](https://reactnative.dev/)
 - [x] [Expo](https://docs.expo.dev/)
 - [x] [EAS Build](https://docs.expo.dev/build/introduction/)
-- [x] [TypeScript (v4.9) - Type Check](https://www.typescriptlang.org/)
+- [x] [TypeScript - Type Check](https://www.typescriptlang.org/)
 - [x] [ESLint - Linter](https://eslint.org/)
 - [x] [Prettier - Formatter](https://prettier.io/)
 - [x] [Recoil - State Management](https://recoiljs.org/)
