@@ -19,6 +19,7 @@ import Toast from 'react-native-toast-message'
 import { emailSchema, passwordSchema } from '@/utils/form'
 import { firebaseAuth } from '@/lib/firebase'
 import Button from '@/components/common/atoms/Button'
+import { sleep } from '@/utils/time'
 // import appConfig from '@/config/app'
 // const actionCodeSettings = {
 //   url: `https://${appConfig.domain}/action`,
@@ -68,6 +69,7 @@ export default function RegisterScreen() {
   }, [validateEmail, validatePassword])
 
   const signUp = useCallback(async () => {
+    await sleep(500)
     if (firebaseAuth && emailError === '' && passwordError === '') {
       try {
         setLoading(true)
@@ -92,11 +94,10 @@ export default function RegisterScreen() {
         navigation.navigate('CheckEmail')
       } catch (err) {
         console.error(err)
+
         if (
           err instanceof Error &&
-          err.message.includes(
-            'FirebaseError: Firebase: Error (auth/email-already-in-use).'
-          )
+          err.message.includes('Firebase: Error (auth/email-already-in-use).')
         ) {
           Toast.show({
             type: 'error',
@@ -231,7 +232,7 @@ export default function RegisterScreen() {
                   }}
                   disabled={!isChecked || isLoading}
                   className={clsx(
-                    !isChecked
+                    !isChecked || isLoading
                       ? 'bg-gray-300 dark:bg-gray-800 dark:text-gray-400'
                       : '',
                     'w-full py-2 px-3'
