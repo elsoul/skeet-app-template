@@ -2,6 +2,7 @@ import defaultJA from './default'
 import dashboard from './dashboard'
 import routes from './routes'
 import settings from './settings'
+import users from './users'
 
 const translationJA = {
   translation: {
@@ -9,6 +10,7 @@ const translationJA = {
     dashboard,
     routes,
     settings,
+    users,
   },
 }
 
