@@ -17,6 +17,9 @@ const defaultJA = {
   reset: 'リセット',
   sentResetPasswordRequest: 'リセットリクエストを送信しました',
   confirmEmail: 'メールを確認してください',
+  resetRequestErrorTitle: 'リセットエラー',
+  resetRequestErrorBody:
+    'パスワードリセットに失敗しました。メールアドレスを確認してください。',
   sentConfirmEmailTitle: '確認メールを送信しました',
   sentConfirmEmailBody:
     'ご登録ありがとうございます。メールボックスをご確認ください。',

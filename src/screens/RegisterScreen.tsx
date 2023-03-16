@@ -69,7 +69,6 @@ export default function RegisterScreen() {
   }, [validateEmail, validatePassword])
 
   const signUp = useCallback(async () => {
-    await sleep(500)
     if (firebaseAuth && emailError === '' && passwordError === '') {
       try {
         setLoading(true)
@@ -226,8 +225,9 @@ export default function RegisterScreen() {
               </View>
               <View>
                 <Button
-                  onPress={() => {
+                  onPress={async () => {
                     validate()
+                    await sleep(500)
                     signUp()
                   }}
                   disabled={!isChecked || isLoading}

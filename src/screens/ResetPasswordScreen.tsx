@@ -6,26 +6,62 @@ import useColorModeRefresh from '@/hooks/useColorModeRefresh'
 import LogoHorizontal from '@/components/common/atoms/LogoHorizontal'
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
-import clsx from 'clsx'
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import Toast from 'react-native-toast-message'
 import useAnalytics from '@/hooks/useAnalytics'
 import Button from '@/components/common/atoms/Button'
+import { emailSchema } from '@/utils/form'
+import { sleep } from '@/utils/time'
+import clsx from 'clsx'
+import { firebaseAuth } from '@/lib/firebase'
+import { sendPasswordResetEmail } from 'firebase/auth'
 
 export default function ResetPasswordScreen() {
   useColorModeRefresh()
   useAnalytics()
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
+  const [isLoading, setLoading] = useState(false)
+  const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState('')
+  const validateEmail = useCallback(() => {
+    try {
+      emailSchema.parse(email)
+      setEmailError('')
+    } catch (err) {
+      setEmailError('emailErrorText')
+    }
+  }, [email, setEmailError])
 
-  const resetPassword = useCallback(() => {
-    navigation.navigate('CheckEmail')
-    Toast.show({
-      type: 'success',
-      text1: t('sentResetPasswordRequest') ?? 'Succeed Reset Password Request',
-      text2: t('confirmEmail') ?? 'Check your email',
-    })
-  }, [navigation, t])
+  const validate = useCallback(() => {
+    validateEmail()
+  }, [validateEmail])
+
+  const resetPassword = useCallback(async () => {
+    if (firebaseAuth && emailError === '') {
+      try {
+        setLoading(true)
+        await sendPasswordResetEmail(firebaseAuth, email)
+        Toast.show({
+          type: 'success',
+          text1:
+            t('sentResetPasswordRequest') ?? 'Succeed Reset Password Request',
+          text2: t('confirmEmail') ?? 'Check your email',
+        })
+        navigation.navigate('CheckEmail')
+      } catch (err) {
+        console.error(err)
+        Toast.show({
+          type: 'error',
+          text1:
+            t('sentResetPasswordRequest') ?? 'Succeed Reset Password Request',
+          text2: t('confirmEmail') ?? 'Check your email',
+        })
+      } finally {
+        setLoading(false)
+      }
+    }
+  }, [navigation, t, emailError, email])
 
   return (
     <>
@@ -64,6 +100,12 @@ export default function ResetPasswordScreen() {
                   style={tw`text-sm font-loaded-medium leading-6 text-gray-900 dark:text-gray-50`}
                 >
                   {t('email')}
+                  {emailError !== '' && (
+                    <Text style={tw`text-red-500 dark:text-red-300 text-xs`}>
+                      {' : '}
+                      {t(emailError)}
+                    </Text>
+                  )}
                 </Text>
                 <View style={tw`mt-2`}>
                   <TextInput
@@ -74,10 +116,18 @@ export default function ResetPasswordScreen() {
               </View>
               <View>
                 <Button
-                  onPress={() => {
+                  onPress={async () => {
+                    validate()
+                    await sleep(500)
                     resetPassword()
                   }}
-                  className="w-full py-2 px-3"
+                  disabled={isLoading}
+                  className={clsx(
+                    isLoading
+                      ? 'bg-gray-300 dark:bg-gray-800 dark:text-gray-400'
+                      : '',
+                    'w-full py-2 px-3'
+                  )}
                 >
                   <Text
                     style={tw`text-center font-loaded-bold text-lg text-white dark:text-gray-900`}

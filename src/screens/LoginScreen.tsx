@@ -6,7 +6,6 @@ import useColorModeRefresh from '@/hooks/useColorModeRefresh'
 import LogoHorizontal from '@/components/common/atoms/LogoHorizontal'
 import { useNavigation } from '@react-navigation/native'
 import { TextInput } from 'react-native-gesture-handler'
-import clsx from 'clsx'
 import { useCallback, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { userState } from '@/store/user'
@@ -19,6 +18,7 @@ import {
 import { emailSchema, passwordSchema } from '@/utils/form'
 import { firebaseAuth } from '@/lib/firebase'
 import Button from '@/components/common/atoms/Button'
+import { sleep } from '@/utils/time'
 
 export default function LoginScreen() {
   useColorModeRefresh()
@@ -198,8 +198,9 @@ export default function LoginScreen() {
               </View>
               <View>
                 <Button
-                  onPress={() => {
+                  onPress={async () => {
                     validate()
+                    await sleep(500)
                     login()
                   }}
                   disabled={isLoading}

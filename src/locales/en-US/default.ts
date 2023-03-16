@@ -17,6 +17,9 @@ const defaultEN = {
   reset: 'Reset',
   sentResetPasswordRequest: 'Succeed Reset Password Request',
   confirmEmail: 'Please check your email',
+  resetRequestErrorTitle: 'Reset Error',
+  resetRequestErrorBody:
+    'Failed to reset password. Please check your email address.',
   sentConfirmEmailTitle: 'Sent confirmation email',
   sentConfirmEmailBody:
     'Thank you for your registration. Please check your email.',
