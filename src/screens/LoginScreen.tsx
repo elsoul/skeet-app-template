@@ -181,7 +181,7 @@ export default function LoginScreen() {
               </View>
 
               <View style={tw`flex-row items-center`}>
-                <View style={tw`flex flex-1`}></View>
+                <View style={tw`flex`}></View>
                 <View style={tw`flex flex-1`}>
                   <Pressable
                     onPress={() => {
