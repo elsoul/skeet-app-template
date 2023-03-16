@@ -7,7 +7,7 @@ import { colorModeRefreshState } from '@/store/colorModeRefresh'
 
 export default function ColorModeChanger() {
   const [_, __, setColorScheme] = useAppColorScheme(tw)
-  const [refresh, setRefresh] = useRecoilState(colorModeRefreshState)
+  const [_refresh, setRefresh] = useRecoilState(colorModeRefreshState)
   return (
     <>
       <Pressable

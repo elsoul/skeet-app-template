@@ -42,6 +42,13 @@ const translationEN = {
     invalidParamsErrorTitle: 'Invalid URL',
     invalidParamsErrorBody:
       'Sorry, Something went wrong... Please try it again later.',
+    verifySuccessTitle: 'Verify Success🎉',
+    verifySuccessBody: 'Welcome to Skeet App Template',
+    verifyErrorTitle: 'Verify Error',
+    verifyErrorBody: 'Something went wrong... Please try it again later.',
+    confirmDoneTitle: 'Confirmation completed!',
+    confirmDoneBody:
+      'Thank you for the confirmation. Welcome to Skeet App Template🙌',
     dashboard,
     routes,
     settings,

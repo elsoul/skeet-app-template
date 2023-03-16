@@ -43,6 +43,13 @@ const translationJA = {
     invalidParamsErrorTitle: '不正なURLです',
     invalidParamsErrorBody:
       'すみません、なにか問題が発生しました。もう一度お試しください。',
+    verifySuccessTitle: '認証成功🎉',
+    verifySuccessBody: 'Skeet App Templateへようこそ',
+    verifyErrorTitle: '認証エラー',
+    verifyErrorBody: 'エラーが発生しました。もう一度お試しください。',
+    confirmDoneTitle: '確認完了！',
+    confirmDoneBody:
+      'ご確認ありがとうございます。そしてSkeet App Templateへようこそ🙌',
     dashboard,
     routes,
     settings,

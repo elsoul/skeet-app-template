@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native'
 
 export default function InvalidParamsError() {
   const { t } = useTranslation()
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
   return (
     <>
       <View style={tw`h-full`}>
