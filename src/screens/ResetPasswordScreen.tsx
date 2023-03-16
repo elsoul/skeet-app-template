@@ -111,6 +111,8 @@ export default function ResetPasswordScreen() {
                   <TextInput
                     style={tw`w-full border-2 border-gray-900 dark:border-gray-50 p-3 text-lg font-loaded-bold text-gray-900 dark:text-white sm:leading-6`}
                     inputMode="email"
+                    value={email}
+                    onChangeText={setEmail}
                   />
                 </View>
               </View>
