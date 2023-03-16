@@ -184,7 +184,7 @@ export default function RegisterScreen() {
 
               <View style={tw`flex-row items-center`}>
                 <View style={tw`flex flex-1`}>
-                  <View style={tw`flex-row items-center justify-center`}>
+                  <View style={tw`flex-row items-center justify-start`}>
                     <Checkbox
                       value={isChecked}
                       onValueChange={setChecked}
@@ -209,7 +209,6 @@ export default function RegisterScreen() {
                     </Pressable>
                   </View>
                 </View>
-                <View style={tw`flex flex-1`}></View>
               </View>
               <View>
                 <Button
