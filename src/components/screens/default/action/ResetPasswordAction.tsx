@@ -20,6 +20,7 @@ type Props = {
 
 export default function ResetPasswordAction({ oobCode }: Props) {
   const [isLoading, setLoading] = useState(true)
+  const [isRegisterLoading, setRegisterLoading] = useState(false)
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
   const [email, setEmail] = useState('')
@@ -63,6 +64,7 @@ export default function ResetPasswordAction({ oobCode }: Props) {
 
   const resetPassword = useCallback(async () => {
     try {
+      setRegisterLoading(true)
       if (!firebaseAuth) throw new Error('firebaseAuth not initialized')
       await confirmPasswordReset(firebaseAuth, oobCode, password)
       Toast.show({
@@ -72,6 +74,7 @@ export default function ResetPasswordAction({ oobCode }: Props) {
           t('resetPasswordSuccessBody') ??
           'Something went wrong... Please try it again later.',
       })
+      navigation.navigate('Login')
     } catch (err) {
       console.error(err)
       Toast.show({
@@ -81,8 +84,10 @@ export default function ResetPasswordAction({ oobCode }: Props) {
           t('resetPasswordErrorBody') ??
           'Something went wrong... Please try it again later.',
       })
+    } finally {
+      setRegisterLoading(false)
     }
-  }, [oobCode, password, t])
+  }, [oobCode, password, t, navigation])
 
   if (isLoading) {
     return (
@@ -140,7 +145,7 @@ export default function ResetPasswordAction({ oobCode }: Props) {
                 }}
                 disabled={isLoading}
                 className={clsx(
-                  isLoading
+                  isRegisterLoading
                     ? 'bg-gray-300 dark:bg-gray-800 dark:text-gray-400'
                     : '',
                   'w-full py-2 px-3'
