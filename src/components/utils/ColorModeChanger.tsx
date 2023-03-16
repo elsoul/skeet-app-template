@@ -13,7 +13,7 @@ export default function ColorModeChanger() {
       <Pressable
         onPress={() => {
           setColorScheme('light')
-          setRefresh({ count: refresh.count + 1 })
+          setRefresh({ mode: 'light' })
         }}
         style={tw`hidden dark:flex hover:dark:text-gray-200`}
       >
@@ -22,7 +22,7 @@ export default function ColorModeChanger() {
       <Pressable
         onPress={() => {
           setColorScheme('dark')
-          setRefresh({ count: refresh.count + 1 })
+          setRefresh({ mode: 'dark' })
         }}
         style={tw`dark:hidden hover:text-gray-900`}
       >

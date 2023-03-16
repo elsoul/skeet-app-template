@@ -1,9 +1,12 @@
 import tw from '@/lib/tailwind'
 import { useTranslation } from 'react-i18next'
 import { View, Text } from 'react-native'
+import Button from '@/components/common/atoms/Button'
+import { useNavigation } from '@react-navigation/native'
 
 export default function InvalidParamsError() {
   const { t } = useTranslation()
+  const navigation = useNavigation()
   return (
     <>
       <View style={tw`h-full`}>
@@ -21,9 +24,19 @@ export default function InvalidParamsError() {
             >
               {t('invalidParamsErrorBody')}
             </Text>
-            <View
-              style={tw`mt-10 flex items-center justify-center gap-x-6`}
-            ></View>
+            <View style={tw`mt-8 flex items-center justify-center gap-x-6`}>
+              <Button
+                onPress={() => {
+                  navigation.navigate('Login')
+                }}
+              >
+                <Text
+                  style={tw`text-center font-loaded-bold text-lg text-white dark:text-gray-900`}
+                >
+                  {t('backToLogin')}
+                </Text>
+              </Button>
+            </View>
           </View>
         </View>
       </View>

@@ -1,12 +1,12 @@
 import { atom } from 'recoil'
 
 export type ColorModeRefreshState = {
-  count: number
+  mode: 'light' | 'dark'
 }
 
 export const colorModeRefreshState = atom<ColorModeRefreshState>({
   key: 'colorModeRefreshState',
   default: {
-    count: 0,
+    mode: 'light',
   },
 })

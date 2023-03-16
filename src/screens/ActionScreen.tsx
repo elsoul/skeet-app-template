@@ -6,10 +6,12 @@ import { RootStackParamList } from '@/routes/Routes'
 import InvalidParamsError from '@/components/error/InvalidParamsError'
 import ResetPasswordAction from '@/components/screens/default/action/ResetPasswordAction'
 import VerifyEmailAction from '@/components/screens/default/action/VerifyEmailAction'
+import useColorModeRefresh from '@/hooks/useColorModeRefresh'
 
 type ActionScreenRouteProp = RouteProp<RootStackParamList, 'Action'>
 
 export default function ActionScreen() {
+  useColorModeRefresh()
   useAnalytics()
   const route: ActionScreenRouteProp = useRoute()
   const mode = useMemo(() => route.params?.mode ?? undefined, [route.params])
