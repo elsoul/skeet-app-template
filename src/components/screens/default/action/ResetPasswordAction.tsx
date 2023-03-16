@@ -140,7 +140,7 @@ export default function ResetPasswordAction({ oobCode }: Props) {
               <Button
                 onPress={async () => {
                   validate()
-                  await sleep(500)
+                  await sleep(100)
                   resetPassword()
                 }}
                 disabled={isLoading}
