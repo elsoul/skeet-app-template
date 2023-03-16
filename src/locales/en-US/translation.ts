@@ -39,6 +39,9 @@ const translationEN = {
     succeedLogout: 'Succeed to sign out',
     seeYouSoon: 'See you soon👋',
     logout: 'Sign out',
+    invalidParamsErrorTitle: 'Invalid URL',
+    invalidParamsErrorBody:
+      'Sorry, Something went wrong... Please try it again later.',
     dashboard,
     routes,
     settings,

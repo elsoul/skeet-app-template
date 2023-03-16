@@ -38,7 +38,7 @@ export default function DefaultLayout({ children }: Props) {
                         )}`
                       }
                     >
-                      <ArrowLeftIcon style={tw`w-5 h-5`} />
+                      <ArrowLeftIcon style={tw`w-5 h-5 dark:text-gray-50`} />
                     </Pressable>
                   </>
                 )}

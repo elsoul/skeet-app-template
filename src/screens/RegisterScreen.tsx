@@ -19,6 +19,7 @@ import Toast from 'react-native-toast-message'
 import { emailSchema, passwordSchema } from '@/utils/form'
 import { firebaseAuth } from '@/lib/firebase'
 import appConfig from '@/config/app'
+import Button from '@/components/common/atoms/Button'
 
 const actionCodeSettings = {
   url: `https://${appConfig.domain}/action`,
@@ -86,7 +87,7 @@ export default function RegisterScreen() {
             t('sentConfirmEmailBody') ??
             'Thank you for your registration. Please check your email.',
         })
-        navigation.navigate('check-email')
+        navigation.navigate('CheckEmail')
       } catch (err) {
         console.error(err)
         if (err instanceof Error && err.message === 'inputError') {
@@ -121,7 +122,7 @@ export default function RegisterScreen() {
             </Text>
             <Pressable
               onPress={() => {
-                navigation.navigate('login')
+                navigation.navigate('Login')
               }}
             >
               <Text
@@ -211,30 +212,25 @@ export default function RegisterScreen() {
                 <View style={tw`flex flex-1`}></View>
               </View>
               <View>
-                <Pressable
+                <Button
                   onPress={() => {
                     validate()
                     signUp()
                   }}
                   disabled={!isChecked || isLoading}
-                  style={({ pressed }) =>
-                    tw`${clsx(
-                      pressed
-                        ? 'bg-gray-700 dark:bg-gray-300'
-                        : 'bg-gray-900 dark:bg-gray-50',
-                      !isChecked
-                        ? 'bg-gray-300 dark:bg-gray-700 dark:text-gray-400'
-                        : '',
-                      'flex w-full justify-center py-2 px-3'
-                    )}`
-                  }
+                  className={clsx(
+                    !isChecked
+                      ? 'bg-gray-300 dark:bg-gray-800 dark:text-gray-400'
+                      : '',
+                    'w-full py-2 px-3'
+                  )}
                 >
                   <Text
                     style={tw`text-center font-loaded-bold text-lg text-white dark:text-gray-900`}
                   >
                     {t('register')}
                   </Text>
-                </Pressable>
+                </Button>
               </View>
             </View>
           </View>

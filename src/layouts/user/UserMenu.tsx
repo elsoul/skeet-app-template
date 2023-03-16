@@ -43,7 +43,7 @@ export default function UserMenu() {
           <View style={tw`shadow-lg dark:bg-gray-900`}>
             <MenuOption
               onSelect={() => {
-                navigation.navigate('settings')
+                navigation.navigate('UserSettings')
               }}
               style={tw`p-3`}
             >

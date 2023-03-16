@@ -10,6 +10,7 @@ import clsx from 'clsx'
 import { useCallback } from 'react'
 import Toast from 'react-native-toast-message'
 import useAnalytics from '@/hooks/useAnalytics'
+import Button from '@/components/common/atoms/Button'
 
 export default function ResetPasswordScreen() {
   useColorModeRefresh()
@@ -18,7 +19,7 @@ export default function ResetPasswordScreen() {
   const navigation = useNavigation<any>()
 
   const resetPassword = useCallback(() => {
-    navigation.navigate('check-email')
+    navigation.navigate('CheckEmail')
     Toast.show({
       type: 'success',
       text1: t('sentResetPasswordRequest') ?? 'Succeed Reset Password Request',
@@ -41,7 +42,7 @@ export default function ResetPasswordScreen() {
             </Text>
             <Pressable
               onPress={() => {
-                navigation.navigate('register')
+                navigation.navigate('Register')
               }}
             >
               <Text
@@ -72,25 +73,18 @@ export default function ResetPasswordScreen() {
                 </View>
               </View>
               <View>
-                <Pressable
+                <Button
                   onPress={() => {
                     resetPassword()
                   }}
-                  style={({ pressed }) =>
-                    tw`${clsx(
-                      pressed
-                        ? 'bg-gray-700 dark:bg-gray-300'
-                        : 'bg-gray-900 dark:bg-gray-50',
-                      'flex w-full justify-center py-2 px-3'
-                    )}`
-                  }
+                  className="w-full py-2 px-3"
                 >
                   <Text
                     style={tw`text-center font-loaded-bold text-lg text-white dark:text-gray-900`}
                   >
                     {t('reset')}
                   </Text>
-                </Pressable>
+                </Button>
               </View>
             </View>
           </View>

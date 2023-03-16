@@ -13,6 +13,13 @@ import appConfig from '@/config/app'
 const Stack = createNativeStackNavigator()
 const prefix = Linking.createURL('/')
 
+export type RootStackParamList = {
+  Action: {
+    mode?: string | undefined
+    oobCode?: string | undefined
+  }
+}
+
 export default function Routes() {
   const { t } = useTranslation()
   const user = useRecoilValue(userState)

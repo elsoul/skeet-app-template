@@ -18,6 +18,7 @@ import {
 } from 'firebase/auth'
 import { emailSchema, passwordSchema } from '@/utils/form'
 import { firebaseAuth } from '@/lib/firebase'
+import Button from '@/components/common/atoms/Button'
 
 export default function LoginScreen() {
   useColorModeRefresh()
@@ -119,7 +120,7 @@ export default function LoginScreen() {
             </Text>
             <Pressable
               onPress={() => {
-                navigation.navigate('register')
+                navigation.navigate('Register')
               }}
             >
               <Text
@@ -184,7 +185,7 @@ export default function LoginScreen() {
                 <View style={tw`flex flex-1`}>
                   <Pressable
                     onPress={() => {
-                      navigation.navigate('reset-password')
+                      navigation.navigate('ResetPassword')
                     }}
                   >
                     <Text
@@ -196,27 +197,20 @@ export default function LoginScreen() {
                 </View>
               </View>
               <View>
-                <Pressable
+                <Button
                   onPress={() => {
                     validate()
                     login()
                   }}
                   disabled={isLoading}
-                  style={({ pressed }) =>
-                    tw`${clsx(
-                      pressed
-                        ? 'bg-gray-700 dark:bg-gray-300'
-                        : 'bg-gray-900 dark:bg-gray-50',
-                      'flex w-full justify-center py-2 px-3'
-                    )}`
-                  }
+                  className="w-full py-2 px-3"
                 >
                   <Text
-                    style={tw`text-center font-loaded-bold text-lg text-white dark:text-gray-900`}
+                    style={tw`text-center font-loaded-bold text-lg text-white`}
                   >
                     {t('login')}
                   </Text>
-                </Pressable>
+                </Button>
               </View>
             </View>
           </View>

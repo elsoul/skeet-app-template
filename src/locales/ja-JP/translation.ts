@@ -40,6 +40,9 @@ const translationJA = {
     succeedLogout: 'ログアウトしました',
     seeYouSoon: 'では、また👋',
     logout: 'ログアウト',
+    invalidParamsErrorTitle: '不正なURLです',
+    invalidParamsErrorBody:
+      'すみません、なにか問題が発生しました。もう一度お試しください。',
     dashboard,
     routes,
     settings,
