@@ -18,21 +18,20 @@ import {
 import Toast from 'react-native-toast-message'
 import { emailSchema, passwordSchema } from '@/utils/form'
 import { firebaseAuth } from '@/lib/firebase'
-import appConfig from '@/config/app'
 import Button from '@/components/common/atoms/Button'
-
-const actionCodeSettings = {
-  url: `https://${appConfig.domain}/action`,
-  iOS: {
-    bundleId: appConfig.iosId,
-  },
-  android: {
-    packageName: appConfig.androidId,
-    installApp: true,
-    minimumVersion: '12',
-  },
-  handleCodeInApp: true,
-}
+// import appConfig from '@/config/app'
+// const actionCodeSettings = {
+//   url: `https://${appConfig.domain}/action`,
+//   iOS: {
+//     bundleId: appConfig.iosId,
+//   },
+//   android: {
+//     packageName: appConfig.androidId,
+//     installApp: true,
+//     minimumVersion: '12',
+//   },
+//   handleCodeInApp: true,
+// }
 
 export default function RegisterScreen() {
   useColorModeRefresh()
@@ -79,7 +78,10 @@ export default function RegisterScreen() {
           password
         )
 
-        await sendEmailVerification(userCredential.user, actionCodeSettings)
+        await sendEmailVerification(
+          userCredential.user
+          // , actionCodeSettings
+        )
         Toast.show({
           type: 'success',
           text1: t('sentConfirmEmailTitle') ?? 'Sent confirmation email',
@@ -90,8 +92,19 @@ export default function RegisterScreen() {
         navigation.navigate('CheckEmail')
       } catch (err) {
         console.error(err)
-        if (err instanceof Error && err.message === 'inputError') {
-          return
+        if (
+          err instanceof Error &&
+          err.message.includes(
+            'FirebaseError: Firebase: Error (auth/email-already-in-use).'
+          )
+        ) {
+          Toast.show({
+            type: 'error',
+            text1: t('alreadyExistTitle') ?? 'Already exist',
+            text2:
+              t('alreadyExistBody') ??
+              'This email address is already exist. Please try to sign in.',
+          })
         } else {
           Toast.show({
             type: 'error',

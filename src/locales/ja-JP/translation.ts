@@ -50,6 +50,9 @@ const translationJA = {
     confirmDoneTitle: '確認完了！',
     confirmDoneBody:
       'ご確認ありがとうございます。そしてSkeet App Templateへようこそ🙌',
+    alreadyExistTitle: 'すでに登録されています。',
+    alreadyExistBody:
+      'こちらのメールアドレスはすでに登録されています。ログインをお試しください。',
     dashboard,
     routes,
     settings,

@@ -49,6 +49,9 @@ const translationEN = {
     confirmDoneTitle: 'Confirmation completed!',
     confirmDoneBody:
       'Thank you for the confirmation. Welcome to Skeet App Template🙌',
+    alreadyExistTitle: 'Already exist',
+    alreadyExistBody:
+      'This email address is already exist. Please try to sign in.',
     dashboard,
     routes,
     settings,
