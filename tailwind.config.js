@@ -141,31 +141,10 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'loaded-light': [
-          'Outfit_300Light',
-          'NotoSansJP_300Light',
-          ...defaultTheme.fontFamily.sans,
-        ],
-        'loaded-normal': [
-          'Outfit_400Regular',
-          'NotoSansJP_400Regular',
-          ...defaultTheme.fontFamily.sans,
-        ],
-        'loaded-medium': [
-          'Outfit_500Medium',
-          'NotoSansJP_500Medium',
-          ...defaultTheme.fontFamily.sans,
-        ],
-        'loaded-bold': [
-          'Outfit_700Bold',
-          'NotoSansJP_700Bold',
-          ...defaultTheme.fontFamily.sans,
-        ],
-        'loaded-extrabold': [
-          'Outfit_800ExtraBold',
-          'NotoSansJP_900Black',
-          ...defaultTheme.fontFamily.sans,
-        ],
+        'loaded-light': ['Outfit_300Light', ...defaultTheme.fontFamily.sans],
+        'loaded-normal': ['Outfit_400Regular', ...defaultTheme.fontFamily.sans],
+        'loaded-medium': ['Outfit_500Medium', ...defaultTheme.fontFamily.sans],
+        'loaded-bold': ['Outfit_700Bold', ...defaultTheme.fontFamily.sans],
       },
     },
   },

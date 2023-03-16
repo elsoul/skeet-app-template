@@ -8,15 +8,8 @@ import {
   Outfit_400Regular,
   Outfit_500Medium,
   Outfit_700Bold,
-  Outfit_800ExtraBold,
 } from '@expo-google-fonts/outfit'
-import {
-  NotoSansJP_300Light,
-  NotoSansJP_400Regular,
-  NotoSansJP_500Medium,
-  NotoSansJP_700Bold,
-  NotoSansJP_900Black,
-} from '@expo-google-fonts/noto-sans-jp'
+
 import AppLoading from '@/components/loading/AppLoading'
 import { Suspense } from 'react'
 import { RecoilRoot } from 'recoil'
@@ -36,12 +29,6 @@ export default function App() {
     Outfit_400Regular,
     Outfit_500Medium,
     Outfit_700Bold,
-    Outfit_800ExtraBold,
-    NotoSansJP_300Light,
-    NotoSansJP_400Regular,
-    NotoSansJP_500Medium,
-    NotoSansJP_700Bold,
-    NotoSansJP_900Black,
   })
 
   if (!fontsLoaded) {
