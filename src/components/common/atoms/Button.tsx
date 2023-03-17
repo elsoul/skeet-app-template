@@ -5,9 +5,8 @@ import { Pressable, StyleProp, ViewStyle } from 'react-native'
 
 const baseStyles = {
   solid:
-    'group items-center justify-center py-2 px-4 font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2',
-  outline:
-    'group ring-1 items-center justify-center py-2 px-4 focus:outline-none',
+    'items-center justify-center py-2 px-4 font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2',
+  outline: 'ring-1 items-center justify-center py-2 px-4 focus:outline-none',
 }
 
 const variantStyles = {
