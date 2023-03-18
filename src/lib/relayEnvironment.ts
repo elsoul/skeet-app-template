@@ -1,4 +1,4 @@
-// import 'regenerator-runtime/runtime'
+import 'regenerator-runtime/runtime'
 import { Environment, RecordSource, Store } from 'relay-runtime'
 import {
   authMiddleware,
