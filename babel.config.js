@@ -26,8 +26,8 @@ module.exports = function (api) {
             '@assets': ['./assets'],
           },
         },
-        'relay',
       ],
+      'relay',
     ],
   }
 }
