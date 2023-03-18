@@ -11,6 +11,7 @@
     "web": "EXPO_USE_PATH_ALIASES=1 expo start --web",
     "update:packages": "ncu -x 'react-native-reanimated,react-native-svg' && yarn",
     "update:schema": "graphql-codegen",
+    "build:configure": "eas build:configure",
     "build:development:ios": "relay-compiler && eas build --platform ios --profile development",
     "build:development:android": "relay-compiler && eas build --platform android --profile development",
     "build:preview:ios": "relay-compiler && eas build --platform ios --profile preview",

@@ -79,6 +79,17 @@ $ firebase login:ci
 
 ```
 
+## EAS Build
+
+[EAS Build](https://docs.expo.dev/build/introduction/)
+
+You need to run this command to setup EAS Build project.
+(Edit app.json for example changing names and deleting "extra" to build new project.)
+
+```
+yarn build:configure
+```
+
 ## GitHub Actions (CI/CD)
 
 Needs to set Secrets on GitHub to work with GitHub Actions.
