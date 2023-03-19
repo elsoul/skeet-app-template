@@ -1,5 +1,4 @@
 import tw from '@/lib/tailwind'
-import { useCallback } from 'react'
 import { Text, View } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { EllipsisVerticalIcon } from 'react-native-heroicons/outline'
@@ -10,26 +9,13 @@ import {
   MenuOption,
 } from 'react-native-popup-menu'
 import { useNavigation } from '@react-navigation/native'
-import { useRecoilState } from 'recoil'
-import { userState } from '@/store/user'
-import Toast from 'react-native-toast-message'
+import useLogout from '@/hooks/useLogout'
 
 export default function UserMenu() {
   const { t } = useTranslation()
   const navigation = useNavigation<any>()
-  const [user, setUser] = useRecoilState(userState)
 
-  const logout = useCallback(() => {
-    Toast.show({
-      type: 'success',
-      text1: t('succeedLogout') ?? 'Succeed to sign out',
-      text2: t('seeYouSoon') ?? 'See you soon👋',
-    })
-    setUser({
-      ...user,
-      uid: '',
-    })
-  }, [user, setUser, t])
+  const logout = useLogout()
 
   return (
     <>
