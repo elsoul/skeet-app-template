@@ -3631,7 +3631,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-relay@^14.1.3":
+"@types/react-relay@14.1.3":
   version "14.1.3"
   resolved "https://registry.yarnpkg.com/@types/react-relay/-/react-relay-14.1.3.tgz#d8a64e816c255910be7c94170e20472cafe5a51f"
   integrity sha512-tsu+3jN0zeOYKV485fwUy3yMEZWkDVzC2JG0tJgEH6p9tcPQkBAUoXqEZFwSBtHtNo1etfa1Eityg3fC55qDvQ==
@@ -3648,7 +3648,7 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/relay-runtime@*", "@types/relay-runtime@^14.1.9":
+"@types/relay-runtime@*", "@types/relay-runtime@14.1.9":
   version "14.1.9"
   resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-14.1.9.tgz#bb0e2d6574f058f8da90992166b1364fff09e2dc"
   integrity sha512-zMZnZPPawAC15zHygMk6lfHhT11xgkx2jLhXqJpgFKpV86MnQcMEs/dVTADKuUIBLBzf6Og6wK4n5PMsJ0OjVw==
