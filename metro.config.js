@@ -1,20 +1,36 @@
 const path = require('path')
 const { getDefaultConfig } = require('@expo/metro-config')
 
-const defaultConfig = getDefaultConfig(__dirname)
+const config = getDefaultConfig(__dirname)
 
-defaultConfig.resolver.assetExts.push('cjs')
-defaultConfig.resolver.assetExts = defaultConfig.resolver.assetExts.filter(
-  (ext) => ext !== 'svg'
-)
-defaultConfig.resolver.sourceExts.push('svg')
-defaultConfig.transformer.babelTransformerPath = require.resolve(
-  'react-native-svg-transformer'
-)
-
-defaultConfig.resolver.alias = {
-  '@': path.resolve(__dirname, 'src'),
-  '@assets': path.resolve(__dirname, 'assets'),
+config.transformer = {
+  ...config.transformer,
+  babelTransformerPath: require.resolve('react-native-svg-transformer'),
+  getTransformOptions: () => ({
+    transform: {
+      experimentalImportSupport: false,
+      inlineRequires: true,
+    },
+  }),
 }
 
-module.exports = defaultConfig
+config.resolver = {
+  ...config.resolver,
+  assetExts: config.resolver.assetExts.filter((ext) => ext !== 'svg'),
+  sourceExts: [
+    ...config.resolver.sourceExts,
+    'cjs',
+    'js',
+    'ts',
+    'tsx',
+    'jsx',
+    'svg',
+  ],
+  // extraNodeModules: require('expo-crypto-polyfills'),
+  alias: {
+    '@': path.resolve(__dirname, 'src'),
+    '@assets': path.resolve(__dirname, 'assets'),
+  },
+}
+
+module.exports = config
