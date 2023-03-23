@@ -8,14 +8,16 @@ import {
   retryMiddleware,
 } from 'react-relay-network-modern'
 import appConfig from '@/config/app'
-
-const source = new RecordSource()
-const store = new Store(source)
+import { Platform } from 'react-native'
 
 let storeEnvironment: Environment | null = null
+let beforeToken: string | null = null
 
 export const createEnvironment = (token: string) => {
-  if (storeEnvironment) return storeEnvironment
+  if (storeEnvironment && beforeToken && beforeToken === token)
+    return storeEnvironment
+  const source = new RecordSource()
+  const store = new Store(source)
   storeEnvironment = new Environment({
     store,
     network: new RelayNetworkLayer([
@@ -33,10 +35,13 @@ export const createEnvironment = (token: string) => {
       urlMiddleware({
         url: () =>
           process.env.NODE_ENV !== 'production'
-            ? 'http://localhost:4000/graphql'
+            ? Platform.OS === 'android'
+              ? `http://${appConfig.localIp}:4000/graphql`
+              : 'http://localhost:4000/graphql'
             : `https://${appConfig.skeetApiDomain}/graphql`,
       }),
     ]),
   })
+  beforeToken = token
   return storeEnvironment
 }
