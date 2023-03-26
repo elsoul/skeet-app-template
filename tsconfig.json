@@ -8,6 +8,6 @@
       "@assets/*": ["./assets/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "global.d.ts", "App.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "custom.d.ts", "App.tsx"],
   "exclude": ["node_modules", ".expo", "dist"]
 }
