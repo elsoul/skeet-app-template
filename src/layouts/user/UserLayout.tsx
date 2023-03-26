@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native'
 import { ArrowLeftIcon } from 'react-native-heroicons/outline'
 import clsx from 'clsx'
 import UserMenu from './UserMenu'
+import { ScrollView } from 'react-native-gesture-handler'
 
 type Props = {
   children: ReactNode
@@ -17,7 +18,7 @@ export default function UserLayout({ children }: Props) {
 
   return (
     <>
-      <View style={tw`relative w-full h-full bg-white dark:bg-gray-900`}>
+      <ScrollView style={tw`relative w-full h-full bg-white dark:bg-gray-900`}>
         <SafeAreaView>
           <View style={tw`h-24 w-full bg-white dark:bg-gray-900`}>
             <View
@@ -49,7 +50,7 @@ export default function UserLayout({ children }: Props) {
           </View>
           {children}
         </SafeAreaView>
-      </View>
+      </ScrollView>
     </>
   )
 }
