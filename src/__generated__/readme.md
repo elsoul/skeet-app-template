@@ -1,1 +1,0 @@
-## `__generate__` folder is needed

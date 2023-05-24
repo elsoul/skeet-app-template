@@ -27,7 +27,6 @@ module.exports = function (api) {
           },
         },
       ],
-      'relay',
     ],
   }
 }
