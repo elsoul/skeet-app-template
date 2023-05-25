@@ -8,7 +8,7 @@
     "githubUrl": "https://github.com/elsoul/skeet-app-template",
     "version": "0.1.0",
     "orientation": "portrait",
-    "primaryColor": "#2C2929",
+    "primaryColor": "#111827",
     "icon": "./assets/favicon.png",
     "splash": {
       "image": "./assets/splash.png",

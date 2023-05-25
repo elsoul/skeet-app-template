@@ -1,4 +1,2 @@
 .expo
 dist
-src/__generated__
-babel.config.js
